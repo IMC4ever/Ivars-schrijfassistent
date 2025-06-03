@@ -4,44 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ivar’s Schrijf Assistent</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      margin: 0;
-      padding: 40px;
-      color: #333;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #4c2a85;
-      font-size: 32px;
-    }
-    p {
-      font-size: 18px;
-    }
-    .status {
-      margin-top: 20px;
-      background: #e8f0fe;
-      padding: 12px;
-      border-radius: 6px;
-      font-weight: bold;
-      color: #1a73e8;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>Ivar’s Schrijf Assistent</h1>
-    <p>Welkom! Dit is de basisomgeving van de schrijf assistent. Binnenkort voeg je hier slimme AI-logica toe.</p>
-    <div class="status">Status: ✅ De interface werkt!</div>
+    <p>Welkom! Binnenkort kun je hier écht aan de slag met AI-ondersteuning in Ivar’s stijl.</p>
+    <button onclick="checkStatus()">Check AI Status</button>
+    <div id="status" class="status">⏳ Bezig met laden...</div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
