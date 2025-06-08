@@ -1,17 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ivar’s Schrijf Assistent</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Ivar’s Assistent</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Ivar’s Schrijf Assistent</h1>
-    <p>Welkom! Binnenkort kun je hier écht aan de slag met AI-ondersteuning in Ivar’s stijl.</p>
-    <button onclick="checkStatus()">Check AI Status</button>
-    <div id="status" class="status">⏳ Bezig met laden...</div>
+    <img src="logo.png" alt="Ivar's logo" class="logo" />
+    <h1>Ivar’s Assistent</h1>
+    <label for="preset">Kies een preset:</label>
+    <select id="preset">
+      <option value="email">Email</option>
+      <option value="linkedin">LinkedIn</option>
+      <option value="offerte">Offerte</option>
+    </select>
+    <textarea id="userInput" placeholder="Typ hier je input..."></textarea>
+    <button onclick="generate()">Genereer</button>
+    <div id="output"></div>
   </div>
   <script src="script.js"></script>
 </body>
