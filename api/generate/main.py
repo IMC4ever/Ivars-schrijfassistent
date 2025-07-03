@@ -59,9 +59,9 @@ def build_system_message(general, specific):
 
     # Voorbeeldoutput
     if example_output := specific.get("example_output"):
-        message += f"- Voorbeeldoutput:\n"
-        for blok, inhoud in example_output.items():
-            message += f"  • {blok}: {inhoud}\n"
+        message += f"- Voorbeeldoutput (gebruik witregels tussen de blokken, zonder bloknamen):\n"
+        for inhoud in example_output.values():
+            message += f"{inhoud}\n\n"
 
     # Stijlvoorbeeld (indien aanwezig)
     if voorbeeld := specific.get("stijlvoorbeeld"):
