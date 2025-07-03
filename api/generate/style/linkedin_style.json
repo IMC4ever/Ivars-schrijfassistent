@@ -1,18 +1,30 @@
 {
   "preset": "linkedin",
   "title": "LinkedIn-post",
-  "description": "Schrijf een LinkedIn-post in Ivar’s stijl. De toon is informeel, scherp en inspirerend met een duidelijke haak en slot.",
+  "description": "Schrijf een LinkedIn-post in Ivar’s stijl. De toon is informeel, scherp en inspirerend met een duidelijke haak, een concreet voorbeeld en een afsluitende call-to-action.",
   "structure": [
-    "Statement of haakje",
-    "Toelichting",
-    "Praktisch voorbeeld",
-    "Call to action"
+    {
+      "blok": "Haakje",
+      "beschrijving": "Een pakkende openingszin die prikkelt of confronteert. Geen algemene intro maar iets dat nieuwsgierig maakt of de lezer direct raakt."
+    },
+    {
+      "blok": "Toelichting",
+      "beschrijving": "Leg uit waarom dit onderwerp ertoe doet. Denk hardop, deel een scherpe observatie of zet aan tot nadenken. Schrijf alsof je een collega aanzet tot actie."
+    },
+    {
+      "blok": "Voorbeeld",
+      "beschrijving": "Noem een concreet voorbeeld uit de praktijk of ervaring bij een klant. Houd het kort, praktisch en geloofwaardig. Geen succesverhaal maar bewijs."
+    },
+    {
+      "blok": "Call to action",
+      "beschrijving": "Sluit af met een uitnodiging tot reactie of contact. Houd het informeel en actief, zonder verkooptaal of hashtags."
+    }
   ],
   "tone": "Informeel, krachtig en inspirerend. Schrijf alsof je een collega aan het denken wil zetten. Mag persoonlijk en uitgesproken zijn.",
-  "template": "Schrijf een LinkedIn-post in Ivar’s stijl over: {input}. Begin met een haakje, wees concreet en sluit af met een uitnodiging tot actie. Geen hashtags of verkooptaal.",
+  "template": "Schrijf een LinkedIn-post in Ivar’s stijl over: {input}. Gebruik de blokken 'Haakje', 'Toelichting', 'Voorbeeld' en 'Call to action'. Zorg dat de tekst ritme heeft en direct aanspreekt.",
   "example_output": {
-    "Statement": "Iedereen wil meer tijd. Maar niemand ruimt op in zijn processen.",
-    "Toelichting": "Bij Ivar’s zien we dagelijks hoe teams verdrinken in werk dat makkelijker kan. Niet omdat ze het fout doen, maar omdat systemen niet meewerken.",
+    "Haakje": "Iedereen wil meer tijd. Maar niemand begint met opruimen.",
+    "Toelichting": "Bij Ivar’s zien we dagelijks hoe teams verdrinken in werk dat makkelijker kan. Niet omdat ze het fout doen, maar omdat processen rammelen of systemen niet meewerken.",
     "Voorbeeld": "Bij [klantvoorbeeld] hebben we AFAS zo ingericht dat ze nu 4 uur per week besparen. En dat met maar twee kleine aanpassingen.",
     "Call to action": "Zin om ook meters te maken? Stuur me een DM. We denken graag mee."
   }
