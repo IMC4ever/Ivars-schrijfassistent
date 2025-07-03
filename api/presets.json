@@ -1,17 +1,20 @@
 {
   "email": {
-    "template": "Schrijf een e-mail over het volgende onderwerp: {input}",
-    "intro": "Hier is een e-mail in Ivar’s stijl:",
-    "tone": "Energiek, direct, informeel-professioneel"
+    "title": "Klantmail",
+    "intro": "Hieronder vind je een conceptmail voor de klant:",
+    "tone": "Energiek, professioneel en direct",
+    "template": "Hoi,\n\nWe helpen organisaties in zorg, onderwijs en overheid om meer resultaat uit AFAS te halen — zonder gedoe. Van slimme inrichting tot praktische ondersteuning: Ivar’s regelt het. Op zoek naar tijdwinst of structuur? Laten we even bellen.\n\nLaat je weten wat past?\n\nGroet,\n\n[Naam]"
   },
   "linkedin": {
-    "template": "Maak een LinkedIn-post over: {input}",
-    "intro": "Een LinkedIn-post in Ivar’s tone-of-voice:",
-    "tone": "Fris, uitgesproken en to the point"
+    "title": "LinkedIn post",
+    "intro": "Hier is een voorstel voor een LinkedIn-post:",
+    "tone": "Informeel, krachtig en inspirerend",
+    "template": "Bij Ivar’s geloven we niet in harder werken, maar in slimmer inrichten. 💡 Daarom helpen we organisaties die met AFAS werken om tijd te winnen, fouten te voorkomen en meer grip te krijgen.\n\nNieuwsgierig wat dat voor jouw team betekent? Check www.ivars.nl of stuur me een DM."
   },
   "offerte": {
-    "template": "Schrijf een offerte-tekst over: {input}",
-    "intro": "Voorsteltekst voor een offerte:",
-    "tone": "Professioneel, inhoudelijk scherp, zonder poespas"
+    "title": "Offerte-intro",
+    "intro": "Dit is een voorstel voor de inleiding van je offerte:",
+    "tone": "Zakelijk, overtuigend en menselijk",
+    "template": "Dank voor je aanvraag. Graag laten we in deze offerte zien hoe Ivar’s jouw organisatie kan helpen om meer grip, gemak en snelheid te halen uit AFAS. We geloven in korte lijnen, slimme inrichting en resultaatgerichte support. Zo maken we samen meters."
   }
 }
