@@ -4,55 +4,56 @@ import json
 import os
 from openai import OpenAI
 
-# Init OpenAI client met nieuwe SDK v1
+# Init OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# 🎛️ Preset-configuratie: toon, instructie, structuur per type
 def load_presets():
     return {
         "email": {
             "title": "Klantmail",
             "intro": "Hieronder vind je een conceptmail voor de klant:",
             "tone": "Energiek, professioneel en direct",
-            "template": "Schrijf een energieke en professionele mail over: {input}",
-            "extra_instructie": (
-                "Zorg voor een ritmisch begin, heldere zinnen, en eindig met een duidelijke call-to-action. "
-                "Gebruik geen jargon. Behandel de lezer als iemand die slim én druk is."
-            )
+            "template": "Schrijf een energieke en professionele mail in de stijl van Ivar’s over: {input}"
         },
         "linkedin": {
             "title": "LinkedIn post",
             "intro": "Hier is een voorstel voor een LinkedIn-post:",
             "tone": "Informeel, krachtig en inspirerend",
-            "template": "Schrijf een inspirerende LinkedIn-post over: {input}",
-            "extra_instructie": (
-                "Begin krachtig. Gebruik korte alinea’s. Voeg alleen emoji’s toe die zijn goedgekeurd binnen Ivar’s stijl: 💡 📊 🛠️ 🎯. "
-                "Sluit af met een uitnodiging tot interactie of doorklik."
-            )
+            "template": "Schrijf een inspirerende LinkedIn-post in de stijl van Ivar’s over: {input}"
         },
         "offerte": {
             "title": "Offerte-intro",
             "intro": "Dit is een voorstel voor de inleiding van je offerte:",
             "tone": "Zakelijk, overtuigend en menselijk",
-            "template": "Schrijf een zakelijke maar menselijke offerte-intro over: {input}",
-            "extra_instructie": (
-                "Gebruik een zelfverzekerde toon, maar blijf menselijk. Verwijs naar resultaat, samenwerking en korte lijnen. "
-                "Eén alinea is genoeg — geen inhoudsopgave of bullets."
-            )
+            "template": "Schrijf een zakelijke maar mensgerichte offerte-intro in de stijl van Ivar’s over: {input}"
         }
     }
 
-# 🧠 AI-aansturing op basis van preset + user input
 def generate_output(preset_data, user_input):
     prompt = preset_data.get("template", "").replace("{input}", user_input)
     tone = preset_data.get("tone", "")
-    extra = preset_data.get("extra_instructie", "")
 
+    # Nieuwe systeemprompt op basis van Ivar's tone-of-voice en schrijfstijl
     system_message = (
-        "Je bent een professionele AI-copywriter die werkt namens Ivar’s. "
-        "Je schrijft foutloos Nederlands op B1-niveau in een energieke, ritmische, duidelijke stijl. "
-        "Je gebruikt korte actieve zinnen, vermijdt clichés, legt niets uit en levert alleen de eindtekst. "
-        "Je houdt rekening met de tone-of-voice van Ivar’s zoals bekend uit eerdere opdrachten."
+        "Je bent een professionele AI-copywriter die schrijft namens Ivar’s.\n\n"
+        "🎯 Doel:\n"
+        "Schrijf korte, ritmische teksten die direct inzetbaar zijn in een zakelijke context (klantmail, offerte, LinkedIn, etc.). "
+        "Geen clichés, geen uitleg, geen generieke zinnen. Gebruik een energieke, toegankelijke toon met lef. Jij bent Ivar’s in tekstvorm.\n\n"
+        "🧱 Schrijfstijl:\n"
+        "- Taalniveau B1\n"
+        "- Actieve zinnen\n"
+        "- Kort, ritmisch en to-the-point\n"
+        "- Geen marketingtaal, geen buzzwords\n"
+        "- Gebruik alleen emoji’s uit Ivar’s brandguide (zoals 💡 bij ideeën)\n"
+        "- Toon: zelfverzekerd, vriendelijk, resultaatgericht\n"
+        "- Max. 4 alinea’s per output\n\n"
+        "🎯 Context:\n"
+        "Ivar’s helpt organisaties in zorg, onderwijs en overheid om meer resultaat uit AFAS te halen — van inrichting tot optimalisatie. "
+        "Alles draait om tijdwinst, grip en minder gedoe.\n\n"
+        "📌 Richtlijnen:\n"
+        "- Benoem het probleem van de doelgroep kort en concreet\n"
+        "- Laat zien hoe Ivar’s dit oplost (geen vaagheden)\n"
+        "- Sluit af met een uitnodiging die past bij de preset (bijv. ‘Even bellen?’)"
     )
 
     try:
@@ -60,7 +61,7 @@ def generate_output(preset_data, user_input):
             model="gpt-4",
             messages=[
                 {"role": "system", "content": system_message},
-                {"role": "user", "content": f"{prompt}\n\n(Toon: {tone})\n{extra}"}
+                {"role": "user", "content": f"{prompt} (Toon: {tone})"}
             ],
             temperature=0.7,
             max_tokens=600
@@ -71,7 +72,6 @@ def generate_output(preset_data, user_input):
         logging.error(str(e))
         return f"⚠️ AI-fout: {str(e)}"
 
-# 🔁 Azure Functions entrypoint
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("✅ Ivar’s Assistent API aangeroepen")
 
