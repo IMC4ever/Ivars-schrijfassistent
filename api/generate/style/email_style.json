@@ -1,17 +1,35 @@
 {
   "preset": "email",
   "title": "Klantmail",
-  "description": "Schrijf een klantgerichte mail in de stijl van Ivar’s. De toon is energiek, direct en professioneel met een persoonlijke noot.",
+  "description": "Schrijf een klantgerichte mail in de stijl van Ivar’s. De toon is energiek, direct en professioneel met een persoonlijke noot. De mail volgt een vaste opbouw, maar zonder expliciete bloknamen in de tekst.",
   "structure": [
-    "Onderwerp",
-    "Aanhef",
-    "Intro",
-    "Kern",
-    "Call to action",
-    "Ondertekening"
+    {
+      "blok": "Onderwerp",
+      "beschrijving": "Korte en prikkelende subjectline. Maximaal 8 woorden. Geen leestekens aan het eind tenzij vraagteken."
+    },
+    {
+      "blok": "Aanhef",
+      "beschrijving": "Persoonlijke aanhef met voornaam of teamnaam, afhankelijk van context. Geen formele aanhef."
+    },
+    {
+      "blok": "Intro",
+      "beschrijving": "Korte opener die direct naar de kern gaat. Verwijs eventueel naar het vorige contactmoment of de aanleiding."
+    },
+    {
+      "blok": "Kern",
+      "beschrijving": "Leg uit wat je komt brengen. Houd het compact, klantgericht en concreet. Eén of twee korte alinea’s."
+    },
+    {
+      "blok": "Call to action",
+      "beschrijving": "Maak de volgende stap helder. Sluit af met een open, uitnodigend voorstel. Geen druk, wel initiatief."
+    },
+    {
+      "blok": "Ondertekening",
+      "beschrijving": "Altijd: voornaam + rol of team bij Ivar’s. Zonder bedrijfsadres, geen standaard footer."
+    }
   ],
   "tone": "Energiek, professioneel en direct. Kort, to the point, vriendelijk. Schrijf alsof je iets uitlegt aan een drukbezette professional.",
-  "template": "Schrijf een mail in de stijl van Ivar’s over: {input}. Gebruik de vaste opbouw, maar noem géén kopjes zoals 'Intro' of 'Call to action'.",
+  "template": "Schrijf een klantmail in de stijl van Ivar’s over: {input}. Gebruik de vaste opbouw van onderwerp, aanhef, intro, kern, call to action en ondertekening. Zorg voor lucht in de tekst door witregels tussen alinea’s, en gebruik géén kopjes of bloknamen. De mail moet vloeiend, professioneel en uitnodigend lezen.",
   "example_output": {
     "Onderwerp": "Samen meer grip op AFAS?",
     "Aanhef": "Hoi Sanne,",
