@@ -10,20 +10,33 @@
     #output {
       white-space: pre-wrap;
     }
-    /* Copy knopje iets marge en pointer cursor */
-    #copyBtn {
-      margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 6px;
-      border: none;
+    /* Knoppen dezelfde styling en naast elkaar */
+    #generateBtn, #copyBtn {
       background-color: #4c2a85;
       color: white;
-      display: none; /* standaard onzichtbaar */
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      vertical-align: middle;
+      width: 140px;
+      text-align: center;
     }
-    #copyBtn:hover {
+    #generateBtn:hover, #copyBtn:hover {
       background-color: #3a1f5a;
+    }
+    /* Container voor knoppen */
+    .button-container {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+    /* Copy knop standaard verbergen */
+    #copyBtn {
+      display: none;
     }
   </style>
 </head>
@@ -38,9 +51,13 @@
       <option value="offerte">Offerte</option>
     </select>
     <textarea id="userInput" placeholder="Typ hier je input..."></textarea>
-    <button onclick="generate()">Genereer</button>
+
+    <div class="button-container">
+      <button id="generateBtn" onclick="generate()">Genereer</button>
+      <button id="copyBtn" type="button">Tekst kopiëren 📋</button>
+    </div>
+
     <div id="output"></div>
-    <button id="copyBtn" type="button">Tekst kopiëren 📋</button>
   </div>
   <script src="script.js"></script>
 </body>
