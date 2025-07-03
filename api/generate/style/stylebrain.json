@@ -1,7 +1,7 @@
 {
   "meta": {
-    "versie": "1.0",
-    "doel": "AI-stijlbrein voor Ivar’s Assistent",
+    "versie": "1.1",
+    "doel": "Algemene stijlbrein-instructie voor Ivar’s Assistent",
     "opgesteld": "2025-07-03",
     "gebruiktVoor": ["email", "linkedin", "offerte"]
   },
@@ -27,29 +27,20 @@
       "clichés zoals 'onze passie is uw succes'",
       "afstandelijke aanspreekvormen ('geachte heer/mevrouw')",
       "algemene zinnen zonder inhoud ('wij zijn een betrouwbare partner')"
-    ],
-    "structuur": {
-      "email": ["onderwerp", "aanhef", "intro", "kern", "call to action", "afsluiting", "ondertekening"],
-      "linkedin": ["statement of haakje", "toelichting", "praktisch voorbeeld", "call to action"],
-      "offerte": ["dank + aanleiding", "kernboodschap", "werkwijze", "belofte + afronding"]
-    }
+    ]
   },
   "presets": {
     "email": {
-      "doel": "Klantmail opstellen namens Ivar’s",
-      "tone": "Energiek, professioneel en direct",
-      "start_zin": "Hoi,",
-      "eind_zin": "Laat je weten wat past?"
+      "doel": "Klantmail opstellen in Ivar’s stijl",
+      "stylefile": "email_style.json"
     },
     "linkedin": {
-      "doel": "LinkedIn-post in Ivar’s stijl",
-      "tone": "Informeel, krachtig en inspirerend",
-      "stijlvoorbeeld": "Bij Ivar’s geloven we niet in harder werken, maar in slimmer inrichten. 💡"
+      "doel": "LinkedIn-post schrijven in Ivar’s stijl",
+      "stylefile": "linkedin_style.json"
     },
     "offerte": {
-      "doel": "Inleiding van een offerte schrijven",
-      "tone": "Zakelijk, overtuigend en menselijk",
-      "stijlvoorbeeld": "Dank voor je aanvraag. In deze offerte lees je hoe Ivar’s jouw organisatie helpt aan grip, gemak en snelheid."
+      "doel": "Offerte-intro schrijven in Ivar’s stijl",
+      "stylefile": "offerte_style.json"
     }
   }
 }
