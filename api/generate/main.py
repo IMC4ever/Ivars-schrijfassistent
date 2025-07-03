@@ -38,11 +38,29 @@ def build_system_message(general, specific):
         f"- Toegestane emoji’s: {json.dumps(general['emoji']['voorbeelden'])}\n\n"
         f"Preset-instructies:\n"
         f"- Doel: {specific.get('doel', '')}\n"
-        f"- Structuur: {', '.join(specific.get('structuur', []))}\n"
-        f"- Toon: {specific.get('tone', '')}\n"
     )
+
+    # Structuur (indien aanwezig)
+    if 'structure' in specific:
+        structuur_beschrijving = "\n".join(
+            [f"  • {blok['blok']}: {blok['beschrijving']}" for blok in specific['structure']]
+        )
+        message += f"- Structuur per blok:\n{structuur_beschrijving}\n"
+
+    # Toon
+    if 'tone' in specific:
+        message += f"- Toon: {specific['tone']}\n"
+
+    # Voorbeeldoutput
+    if example_output := specific.get("example_output"):
+        message += f"- Voorbeeldoutput:\n"
+        for blok, inhoud in example_output.items():
+            message += f"  • {blok}: {inhoud}\n"
+
+    # Stijlvoorbeeld (indien aanwezig)
     if voorbeeld := specific.get("stijlvoorbeeld"):
         message += f"- Stijlvoorbeeld: {voorbeeld}\n"
+
     return message
 
 # Output genereren
@@ -101,7 +119,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
         preset_style = load_preset_style(stylefile)
         system_message = build_system_message(general_style, preset_style)
-        prompt = preset_style.get("template", "").replace("{input}", user_input)
+
+        # Prompt opbouwen
+        if "template" in preset_style:
+            prompt = preset_style["template"].replace("{input}", user_input)
+        else:
+            prompt = f"Schrijf in Ivar’s-stijl een {preset_key}-tekst over: {user_input}"
 
         output = generate_output(system_message, prompt)
 
