@@ -6,9 +6,24 @@
   <title>Ivar’s Assistent</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Zorg dat witregels en spaties in output behouden blijven */
+    /* Witregels behouden in output */
     #output {
       white-space: pre-wrap;
+    }
+    /* Copy knopje iets marge en pointer cursor */
+    #copyBtn {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #4c2a85;
+      color: white;
+      display: none; /* standaard onzichtbaar */
+    }
+    #copyBtn:hover {
+      background-color: #3a1f5a;
     }
   </style>
 </head>
@@ -25,6 +40,7 @@
     <textarea id="userInput" placeholder="Typ hier je input..."></textarea>
     <button onclick="generate()">Genereer</button>
     <div id="output"></div>
+    <button id="copyBtn" type="button">Tekst kopiëren 📋</button>
   </div>
   <script src="script.js"></script>
 </body>
