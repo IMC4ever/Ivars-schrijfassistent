@@ -1,3 +1,18 @@
+// HTML-tekens escapen (tegen XSS)
+function escapeHtml(text) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// Vervang **bold** door <strong>bold</strong>
+function replaceBold(text) {
+  return text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
 async function generate() {
   const preset = document.getElementById("preset").value;
   const userInput = document.getElementById("userInput").value;
@@ -19,10 +34,11 @@ async function generate() {
     console.log("🔍 Backend response:", data);
 
     if (response.ok && data.message) {
-      // Output veilig als platte tekst met behoud van witregels
-      outputDiv.textContent = data.message;
+      // Veilig HTML escapen, bold vervangen en witregels behouden met <br>
+      const safeText = escapeHtml(data.message);
+      const formattedText = replaceBold(safeText).replace(/\n/g, "<br>");
+      outputDiv.innerHTML = formattedText;
     } else {
-      // Foutmelding als platte tekst tonen
       outputDiv.textContent = `⚠️ Fout bij genereren: ${data.error || 'Onbekende fout'}`;
     }
   } catch (error) {
