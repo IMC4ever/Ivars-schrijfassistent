@@ -25,7 +25,7 @@
     }
   ],
   "tone": "Zakelijk, overtuigend en mensgericht. Korte actieve zinnen, geen vaagheden of verkooppraatjes. Klantgericht, maar met zelfvertrouwen. Schrijf zoals een expert spreekt.",
-  "template": "Schrijf een offerte in de stijl van Ivar’s over: {input}. Gebruik deze vaste blokken: Over Ivar’s, Jullie vraag, Onze aanpak, Wat het oplevert, Samen aan de slag. Laat elke bloknaam zien als kopje (op een eigen regel), gevolgd door een witregel en dan de inhoud. Gebruik geen opsommingstekens of dubbele punten achter de kopjes. Zorg voor witregels tussen de secties. De tekst moet ritmisch, professioneel en klantgericht zijn – alsof het direct uit onze offertegenerator komt.",
+  "template": "Schrijf een offerte in de stijl van Ivar’s over: {input}. Gebruik de vaste blokken 'Over Ivar’s', 'Jullie vraag', 'Onze aanpak', 'Wat het oplevert', en 'Samen aan de slag'. Laat elke bloknaam zien als vetgedrukte kop op een eigen regel, zonder dubbele punt of opsommingstekens. Voeg een witregel toe na elk kopje en tussen de alinea’s. De tekst moet ritmisch, professioneel en klantgericht zijn – alsof het direct uit onze offertegenerator komt.",
   "example_output": {
     "Over Ivar’s": "Wij zijn Ivar’s. We helpen organisaties in zorg, onderwijs en overheid om meer resultaat uit AFAS te halen — zonder gedoe. Dat doen we met slimme inrichting, praktische ondersteuning en een bak ervaring.",
     "Jullie vraag": "Jullie willen grip op processen, minder losse lijstjes en een AFAS-inrichting die meewerkt in plaats van tegen. De wens: rust en structuur in HR, finance en processen — zonder dat het maanden duurt.",
