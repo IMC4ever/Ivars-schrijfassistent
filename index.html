@@ -6,11 +6,9 @@
   <title>Ivar’s Assistent</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Witregels behouden in output */
     #output {
       white-space: pre-wrap;
     }
-    /* Knoppen dezelfde styling en naast elkaar */
     #generateBtn, #copyBtn {
       background-color: #4c2a85;
       color: white;
@@ -28,13 +26,11 @@
     #generateBtn:hover, #copyBtn:hover {
       background-color: #3a1f5a;
     }
-    /* Container voor knoppen */
     .button-container {
       margin-top: 1rem;
       display: flex;
       gap: 1rem;
     }
-    /* Copy knop standaard verbergen */
     #copyBtn {
       display: none;
     }
@@ -54,7 +50,7 @@
 
     <div class="button-container">
       <button id="generateBtn" onclick="generate()">Genereer</button>
-      <button id="copyBtn" type="button">Tekst kopiëren 📋</button>
+      <button id="copyBtn" type="button">Tekst kopiëren</button>
     </div>
 
     <div id="output"></div>
