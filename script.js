@@ -3,6 +3,7 @@ async function generate() {
   const userInput = document.getElementById("userInput").value;
   const outputDiv = document.getElementById("output");
 
+  // Statusmelding met HTML, mag iconen bevatten
   outputDiv.innerHTML = "Even bezig met schrijven... ✍️";
 
   try {
@@ -18,12 +19,14 @@ async function generate() {
     console.log("🔍 Backend response:", data);
 
     if (response.ok && data.message) {
-      outputDiv.innerHTML = `<p>${data.message}</p>`;
+      // Output veilig als platte tekst met behoud van witregels
+      outputDiv.textContent = data.message;
     } else {
-      outputDiv.innerHTML = `<p style="color: red;">⚠️ Fout bij genereren: ${data.error || 'Onbekende fout'}</p>`;
+      // Foutmelding als platte tekst tonen
+      outputDiv.textContent = `⚠️ Fout bij genereren: ${data.error || 'Onbekende fout'}`;
     }
   } catch (error) {
     console.error("❌ Netwerkfout:", error);
-    outputDiv.innerHTML = `<p style="color: red;">⚠️ Netwerkfout: ${error.message}</p>`;
+    outputDiv.textContent = `⚠️ Netwerkfout: ${error.message}`;
   }
 }
