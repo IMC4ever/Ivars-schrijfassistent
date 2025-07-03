@@ -1,3 +1,30 @@
+import logging
+import azure.functions as func
+import json
+import os
+
+def load_presets():
+    path = os.path.join(os.path.dirname(__file__), 'presets.json')
+    with open(path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def generate_output(preset_data, user_input):
+    template = preset_data.get("template", "Schrijf iets over: {input}")
+    tone = preset_data.get("tone", "")
+    intro = preset_data.get("intro", "")
+
+    # Als de template een {input} verwacht maar er is geen input meegegeven
+    if "{input}" in template and not user_input.strip():
+        return "⚠️ Deze preset vereist aanvullende input."
+
+    # Alleen vervangen als de placeholder voorkomt
+    if "{input}" in template:
+        generated = template.replace("{input}", user_input.strip())
+    else:
+        generated = template
+
+    return f"{intro}\n\n{generated}\n\n(Toon: {tone})"
+
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("✅ Ivar’s Assistent API aangeroepen")
 
