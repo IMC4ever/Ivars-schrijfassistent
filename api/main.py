@@ -73,3 +73,4 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             mimetype="application/json",
             status_code=500
         )
+        
