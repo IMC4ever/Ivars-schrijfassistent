@@ -31,5 +31,6 @@
     "Onze aanpak": "We starten met een korte analyse van jullie huidige inrichting. Daarna pakken we de inrichting aan in logische stappen, afgestemd op jullie ritme en team. Geen dikke rapporten, wel meters maken.",
     "Wat het oplevert": "Tijdwinst. Minder fouten. Betere samenwerking tussen teams. En vooral: grip op je processen, zonder afhankelijk te zijn van externe consultants bij elke wijziging.",
     "Samen aan de slag": "Als dit past bij waar jullie naartoe willen, plannen we graag een kick-off. We kijken samen wat er nodig is om snel en slim te starten. Laat je het weten?"
-  }
+  },
+  "template": "Gebruik de volgende input om een offertevoorstel in Ivar’s-stijl te schrijven volgens de vaste structuur (Over Ivar’s, Jullie vraag, Onze aanpak, Wat het oplevert, Samen aan de slag). Werk elk blok kort en krachtig uit: {input}"
 }
