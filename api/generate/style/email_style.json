@@ -1,0 +1,26 @@
+{
+  "preset": "email",
+  "doel": "Een klantmail die persoonlijk, energiek en professioneel overkomt. Gericht op een concrete actie of contactmoment, in de stijl van Ivar’s.",
+  "toon": "Energiek, direct, behulpzaam",
+  "stijlregels": [
+    "Gebruik actieve zinnen en spreek de lezer aan met 'je' of 'jij'",
+    "Begin krachtig en zonder omweg",
+    "Eindig met een duidelijke uitnodiging tot contact (bellen, mailen, afspraak)",
+    "Vermijd wollige of formele taal",
+    "Gebruik indien passend een emoji uit de Ivar's-set (alleen de toegestane)",
+    "Toon lef en initiatief, maar blijf behulpzaam",
+    "Gebruik indien nodig de naam van de dienst of sector (zoals AFAS of overheid/zorg)"
+  ],
+  "structuur": [
+    "Korte opening (persoonlijk of prikkelend)",
+    "To the point uitleg wat Ivar’s doet of aanbiedt",
+    "Relevantie voor de lezer (probleem + oplossing)",
+    "Call to action (bellen, contact opnemen, reageren)"
+  ],
+  "valkuilen": [
+    "Te langdradige zinnen",
+    "Te veel 'wij van WC-eend'",
+    "Te generiek ('wij helpen organisaties met oplossingen')",
+    "Te veel uitleg – hou het concreet en actiegericht"
+  ]
+}
