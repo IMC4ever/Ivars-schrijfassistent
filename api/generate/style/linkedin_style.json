@@ -21,7 +21,7 @@
     }
   ],
   "tone": "Informeel, krachtig en inspirerend. Schrijf alsof je een collega aan het denken wil zetten. Mag persoonlijk en uitgesproken zijn.",
-  "template": "Schrijf een LinkedIn-post in Ivar’s stijl over: {input}. Gebruik de blokken 'Haakje', 'Toelichting', 'Voorbeeld' en 'Call to action'. Zorg dat de tekst ritme heeft en direct aanspreekt.",
+  "template": "Schrijf een LinkedIn-post in Ivar’s stijl over: {input}. Gebruik de blokken 'Haakje', 'Toelichting', 'Voorbeeld' en 'Call to action' als opbouw, maar noem die bloknamen niet letterlijk in de tekst. De output moet vloeiend, ritmisch en aantrekkelijk leesbaar zijn – zonder opsomming of kopjes.",
   "example_output": {
     "Haakje": "Iedereen wil meer tijd. Maar niemand begint met opruimen.",
     "Toelichting": "Bij Ivar’s zien we dagelijks hoe teams verdrinken in werk dat makkelijker kan. Niet omdat ze het fout doen, maar omdat processen rammelen of systemen niet meewerken.",
