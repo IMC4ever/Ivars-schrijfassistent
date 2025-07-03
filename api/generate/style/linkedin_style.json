@@ -1,7 +1,7 @@
 {
   "preset": "linkedin",
   "title": "LinkedIn-post",
-  "description": "Schrijf een LinkedIn-post in Ivar’s stijl. De toon is informeel, scherp en inspirerend met een duidelijke haak, een concreet voorbeeld en een afsluitende call-to-action.",
+  "description": "Schrijf een LinkedIn-post in Ivar’s stijl. De toon is informeel, scherp en inspirerend met ritme, witregels en duidelijke structuur — maar zonder zichtbare kopjes.",
   "structure": [
     {
       "blok": "Haakje",
@@ -21,11 +21,8 @@
     }
   ],
   "tone": "Informeel, krachtig en inspirerend. Schrijf alsof je een collega aan het denken wil zetten. Mag persoonlijk en uitgesproken zijn.",
-  "template": "Schrijf een LinkedIn-post in Ivar’s stijl over: {input}. Gebruik de blokken 'Haakje', 'Toelichting', 'Voorbeeld' en 'Call to action' als opbouw, maar noem die bloknamen niet letterlijk in de tekst. De output moet vloeiend, ritmisch en aantrekkelijk leesbaar zijn – zonder opsomming of kopjes.",
+  "template": "Schrijf een LinkedIn-post in Ivar’s-stijl over: {input}. Gebruik geen kopjes. Zorg voor ritme, witregels en scanbare opmaak. Gebruik alleen de toegestane emoji’s uit de Ivar’s-huisstijl (zoals 💡 🚀 ✅ ⚠️). Geen hashtags of verkooptaal.",
   "example_output": {
-    "Haakje": "Iedereen wil meer tijd. Maar niemand begint met opruimen.",
-    "Toelichting": "Bij Ivar’s zien we dagelijks hoe teams verdrinken in werk dat makkelijker kan. Niet omdat ze het fout doen, maar omdat processen rammelen of systemen niet meewerken.",
-    "Voorbeeld": "Bij [klantvoorbeeld] hebben we AFAS zo ingericht dat ze nu 4 uur per week besparen. En dat met maar twee kleine aanpassingen.",
-    "Call to action": "Zin om ook meters te maken? Stuur me een DM. We denken graag mee."
+    "voorbeeldtekst": "Iedereen wil meer tijd. Maar niemand begint met opruimen. 💡\n\nBij Ivar’s zien we dagelijks hoe teams verdrinken in werk dat makkelijker kan. Niet omdat ze het fout doen, maar omdat processen rammelen of systemen niet meewerken.\n\nBij [klantvoorbeeld] hebben we AFAS zo ingericht dat ze nu 4 uur per week besparen. En dat met maar twee kleine aanpassingen.\n\nZin om ook meters te maken? Stuur me een DM. We denken graag mee. 🚀"
   }
 }
