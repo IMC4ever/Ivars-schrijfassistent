@@ -1,4 +1,4 @@
-// HTML-tekens escapen (tegen XSS)
+// HTML escapen
 function escapeHtml(text) {
   return text
     .replace(/&/g, "&amp;")
@@ -8,7 +8,7 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-// Vervang **bold** door <strong>bold</strong>
+// Vervang **bold** door <strong>
 function replaceBold(text) {
   return text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 }
@@ -17,8 +17,10 @@ async function generate() {
   const preset = document.getElementById("preset").value;
   const userInput = document.getElementById("userInput").value;
   const outputDiv = document.getElementById("output");
+  const copyBtn = document.getElementById("copyBtn");
 
-  // Statusmelding met HTML, mag iconen bevatten
+  copyBtn.style.display = "none"; // knop verbergen tot output
+
   outputDiv.innerHTML = "Even bezig met schrijven... ✍️";
 
   try {
@@ -34,10 +36,12 @@ async function generate() {
     console.log("🔍 Backend response:", data);
 
     if (response.ok && data.message) {
-      // Veilig HTML escapen, bold vervangen en witregels behouden met <br>
       const safeText = escapeHtml(data.message);
       const formattedText = replaceBold(safeText).replace(/\n/g, "<br>");
       outputDiv.innerHTML = formattedText;
+
+      // Kopieerknop tonen
+      copyBtn.style.display = "inline-block";
     } else {
       outputDiv.textContent = `⚠️ Fout bij genereren: ${data.error || 'Onbekende fout'}`;
     }
@@ -46,3 +50,17 @@ async function generate() {
     outputDiv.textContent = `⚠️ Netwerkfout: ${error.message}`;
   }
 }
+
+// Kopieer functionaliteit
+document.getElementById("copyBtn").addEventListener("click", () => {
+  const outputDiv = document.getElementById("output");
+  
+  // Kopieer de *platte tekst* (zonder HTML tags)
+  const textToCopy = outputDiv.textContent;
+
+  navigator.clipboard.writeText(textToCopy).then(() => {
+    alert("Tekst gekopieerd naar klembord!");
+  }).catch(err => {
+    alert("Kopiëren mislukt: " + err);
+  });
+});
