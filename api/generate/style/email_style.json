@@ -1,26 +1,41 @@
 {
   "preset": "email",
-  "doel": "Een klantmail die persoonlijk, energiek en professioneel overkomt. Gericht op een concrete actie of contactmoment, in de stijl van Ivar’s.",
-  "toon": "Energiek, direct, behulpzaam",
-  "stijlregels": [
-    "Gebruik actieve zinnen en spreek de lezer aan met 'je' of 'jij'",
-    "Begin krachtig en zonder omweg",
-    "Eindig met een duidelijke uitnodiging tot contact (bellen, mailen, afspraak)",
-    "Vermijd wollige of formele taal",
-    "Gebruik indien passend een emoji uit de Ivar's-set (alleen de toegestane)",
-    "Toon lef en initiatief, maar blijf behulpzaam",
-    "Gebruik indien nodig de naam van de dienst of sector (zoals AFAS of overheid/zorg)"
+  "title": "Klantmail",
+  "description": "Schrijf een energieke, directe klantmail in Ivar’s-stijl. Kort, persoonlijk, doelgericht en met ruimte voor lef. Geen inleiding over wie we zijn, maar direct waarde voor de klant.",
+  "structure": [
+    {
+      "blok": "Onderwerp",
+      "beschrijving": "Korte, pakkende subjectline die actie of nieuwsgierigheid oproept. Geen clickbait."
+    },
+    {
+      "blok": "Aanhef",
+      "beschrijving": "Informeel maar correct. Geen 'geachte'."
+    },
+    {
+      "blok": "Intro",
+      "beschrijving": "Korte haak: een herkenbaar probleem, opvallend feitje of energieke opener."
+    },
+    {
+      "blok": "Kern",
+      "beschrijving": "Wat gaan we voor de klant betekenen, waarom is dit relevant, hoe maken we het makkelijk?"
+    },
+    {
+      "blok": "Call to action",
+      "beschrijving": "Actieve afsluiting met concrete uitnodiging: bel, mail, plan iets in. Geen 'neem gerust contact op'."
+    },
+    {
+      "blok": "Ondertekening",
+      "beschrijving": "Voornaam + functie, eventueel Ivar’s erachter."
+    }
   ],
-  "structuur": [
-    "Korte opening (persoonlijk of prikkelend)",
-    "To the point uitleg wat Ivar’s doet of aanbiedt",
-    "Relevantie voor de lezer (probleem + oplossing)",
-    "Call to action (bellen, contact opnemen, reageren)"
-  ],
-  "valkuilen": [
-    "Te langdradige zinnen",
-    "Te veel 'wij van WC-eend'",
-    "Te generiek ('wij helpen organisaties met oplossingen')",
-    "Te veel uitleg – hou het concreet en actiegericht"
-  ]
+  "tone": "Energiek, professioneel, oplossingsgericht. Direct, persoonlijk en zonder onnodige context. Alsof je een slimme collega iets toeschrijft.",
+  "example_output": {
+    "Onderwerp": "Minder gedoe met AFAS? Dat kan makkelijker.",
+    "Aanhef": "Hoi Marlot,",
+    "Intro": "Je bent geen AFAS-consultant. Toch voelt het soms wel zo, toch?",
+    "Kern": "Bij Ivar’s richten we AFAS zo in dat jij je werk gewoon kunt doen. Geen duizend vinkjes, wel overzicht en rust. Of het nou HR, Finance of processen zijn – wij maken het behapbaar.",
+    "Call to action": "Lijkt dit op wat je zoekt? Zullen we bellen om te kijken wat past?",
+    "Ondertekening": "Ivar – AFAS Consultant bij Ivar’s"
+  },
+  "template": "Schrijf een klantmail in Ivar’s-stijl over: {input}. Volg de vaste structuur en schrijf helder, actief en doelgericht."
 }
