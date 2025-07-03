@@ -1,41 +1,41 @@
 {
   "preset": "email",
   "title": "Klantmail",
-  "description": "Schrijf een klantgerichte mail in de stijl van Ivar’s. De toon is energiek, direct en professioneel met een persoonlijke noot. De mail volgt een vaste opbouw, maar zonder expliciete bloknamen in de tekst.",
+  "description": "Schrijf een klantgerichte mail in de stijl van Ivar’s. De toon is energiek, direct en professioneel met een persoonlijke noot.",
   "structure": [
     {
       "blok": "Onderwerp",
-      "beschrijving": "Korte en prikkelende subjectline. Maximaal 8 woorden. Geen leestekens aan het eind tenzij vraagteken."
+      "beschrijving": "Een korte, krachtige onderwerpregel die nieuwsgierig maakt of direct het voordeel benoemt. Geen clickbait."
     },
     {
       "blok": "Aanhef",
-      "beschrijving": "Persoonlijke aanhef met voornaam of teamnaam, afhankelijk van context. Geen formele aanhef."
+      "beschrijving": "Persoonlijke begroeting. Gebruik voornaam als deze bekend is."
     },
     {
       "blok": "Intro",
-      "beschrijving": "Korte opener die direct naar de kern gaat. Verwijs eventueel naar het vorige contactmoment of de aanleiding."
+      "beschrijving": "Open luchtig en to the point. Verwijs kort naar de aanleiding of het contactmoment. Houd het menselijk."
     },
     {
       "blok": "Kern",
-      "beschrijving": "Leg uit wat je komt brengen. Houd het compact, klantgericht en concreet. Eén of twee korte alinea’s."
+      "beschrijving": "Geef kern van de boodschap: wat gaan we doen, hoe pakken we het aan, wat is de meerwaarde? Kort, helder, actiegericht."
     },
     {
       "blok": "Call to action",
-      "beschrijving": "Maak de volgende stap helder. Sluit af met een open, uitnodigend voorstel. Geen druk, wel initiatief."
+      "beschrijving": "Zet aan tot concrete vervolgstap, zoals het plannen van een afspraak of terugkoppeling."
     },
     {
       "blok": "Ondertekening",
-      "beschrijving": "Altijd: voornaam + rol of team bij Ivar’s. Zonder bedrijfsadres, geen standaard footer."
+      "beschrijving": "Afsluitgroet met naam en functie, in lijn met de Ivar's-stijl. Beetje flair mag."
     }
   ],
   "tone": "Energiek, professioneel en direct. Kort, to the point, vriendelijk. Schrijf alsof je iets uitlegt aan een drukbezette professional.",
-  "template": "Schrijf een klantmail in de stijl van Ivar’s over: {input}. Gebruik de vaste opbouw van onderwerp, aanhef, intro, kern, call to action en ondertekening. Zorg voor lucht in de tekst door witregels tussen alinea’s, en gebruik géén kopjes of bloknamen. De mail moet vloeiend, professioneel en uitnodigend lezen.",
+  "template": "Schrijf een mail in de stijl van Ivar’s over: {input}. Gebruik de vaste opbouw met de blokken 'Onderwerp', 'Aanhef', 'Intro', 'Kern', 'Call to action' en 'Ondertekening'. Vermijd het noemen van die kopjes zelf. Gebruik witregels tussen de blokken voor scanbaarheid. Geen lange blokken tekst: korte alinea’s en helder ritme.",
   "example_output": {
-    "Onderwerp": "Samen meer grip op AFAS?",
-    "Aanhef": "Hoi Sanne,",
-    "Intro": "Bedankt voor ons gesprek gisteren. Het is helder: jullie zoeken minder ruis en meer structuur in HR-processen.",
-    "Kern": "Bij Ivar’s helpen we dagelijks zorgorganisaties om AFAS slim in te richten. Geen dure rapporten, maar actie. Samen maken we het overzichtelijk en beheersbaar – zodat jij en je team vooruit kunnen.",
-    "Call to action": "Stuur je me jullie huidige knelpunten? Dan kijken we mee en doen we een voorstel.",
-    "Ondertekening": "Groet, Amber – Ivar’s"
+    "Onderwerp": "Marlot gaat bij Bravis aan de slag met AFAS HR Beheer 🚀",
+    "Aanhef": "Hoi Ineke,",
+    "Intro": "We hebben goed nieuws! Marlot de Kruijf is helemaal klaar om bij Bravis aan de slag te gaan met AFAS HR Beheer.",
+    "Kern": "Marlot is een ster in het inrichten en beheren van AFAS, en ze kan niet wachten om dat ook voor jullie te doen. Ze komt 20 uur per week jullie kant op om ervoor te zorgen dat alles op rolletjes loopt. Minder stress, meer structuur.",
+    "Call to action": "Klinkt goed, toch? Het enige wat we nu nog nodig hebben, is een startdatum. Wanneer kan Marlot bij jullie beginnen? Laat het ons weten, dan regelen wij de rest.",
+    "Ondertekening": "Groet,\nTeam Ivar’s ✅"
   }
 }
