@@ -1,5 +1,17 @@
 {
-  "email": {"description": "Voor zakelijke e-mails"},
-  "linkedin": {"description": "Voor LinkedIn-posts"},
-  "klantcase": {"description": "Voor klantverhalen"}
+  "email": {
+    "intro": "Tuurlijk! Hier is je mail in Ivar’s-stijl:",
+    "tone": "energiek, informeel en overtuigend",
+    "template": "Schrijf een energieke e-mail voor een klant over: {input}"
+  },
+  "linkedin": {
+    "intro": "Yes, hier is je LinkedIn-post:",
+    "tone": "fris, menselijk, ritmisch",
+    "template": "Schrijf een LinkedIn-post over: {input}"
+  },
+  "offerte": {
+    "intro": "Hier is een krachtige offerte-intro:",
+    "tone": "to the point en professioneel",
+    "template": "Schrijf een korte offerte-inleiding over: {input}"
+  }
 }
