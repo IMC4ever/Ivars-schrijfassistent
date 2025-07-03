@@ -1,9 +1,9 @@
 async function generate() {
-  const input = document.getElementById("userInput").value;
   const preset = document.getElementById("preset").value;
+  const userInput = document.getElementById("userInput").value;
   const outputDiv = document.getElementById("output");
 
-  outputDiv.innerHTML = "<p><em>Even wachten... jouw Ivar’s stijl wordt gegenereerd.</em></p>";
+  outputDiv.innerHTML = "⏳ Genereren...";
 
   try {
     const response = await fetch("/api/generate", {
@@ -11,17 +11,19 @@ async function generate() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ input, preset })
+      body: JSON.stringify({
+        preset: preset,
+        input: userInput
+      })
     });
 
     if (!response.ok) {
-      throw new Error("Er ging iets mis bij het ophalen van een antwoord.");
+      throw new Error(`API error: ${response.status}`);
     }
 
     const data = await response.json();
-    outputDiv.innerHTML = `<p>${data.result}</p>`;
-  } catch (error) {
-    console.error("Fout:", error);
-    outputDiv.innerHTML = "<p style='color: red;'>Er ging iets mis. Probeer het later opnieuw.</p>";
+    outputDiv.innerHTML = `<pre>${data.output || JSON.stringify(data)}</pre>`;
+  } catch (err) {
+    outputDiv.innerHTML = `❌ Fout: ${err.message}`;
   }
 }
