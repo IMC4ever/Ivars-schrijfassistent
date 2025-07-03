@@ -42,10 +42,16 @@ def build_system_message(general, specific):
 
     # Structuur (indien aanwezig)
     if 'structure' in specific:
-        structuur_beschrijving = "\n".join(
-            [f"  • {blok['blok']}: {blok['beschrijving']}" for blok in specific['structure']]
-        )
-        message += f"- Structuur per blok:\n{structuur_beschrijving}\n"
+        structuur = specific['structure']
+        if isinstance(structuur, list):
+            if all(isinstance(b, dict) and 'blok' in b and 'beschrijving' in b for b in structuur):
+                structuur_beschrijving = "\n".join(
+                    [f"  • {blok['blok']}: {blok['beschrijving']}" for blok in structuur]
+                )
+                message += f"- Structuur per blok:\n{structuur_beschrijving}\n"
+            elif all(isinstance(b, str) for b in structuur):
+                structuur_beschrijving = ", ".join(structuur)
+                message += f"- Structuur: {structuur_beschrijving}\n"
 
     # Toon
     if 'tone' in specific:
