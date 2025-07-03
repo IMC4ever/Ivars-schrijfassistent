@@ -1,27 +1,31 @@
 {
   "preset": "linkedin",
-  "doel": "Een inspirerende LinkedIn-post in de stijl van Ivar’s. Gericht op delen van inzichten, klantcases of visie zonder ‘salespraat’.",
-  "toon": "Informeel-professioneel, energiek en scherp",
-  "stijlregels": [
-    "Begin met een opvallende of prikkelende eerste zin",
-    "Gebruik korte alinea’s en witregels voor leesbaarheid",
-    "Voeg één relevante emoji toe als versterking – nooit decoratief",
-    "Gebruik actieve zinnen en spreek in 'wij'-vorm als het over Ivar’s gaat",
-    "Wees concreet over impact/resultaat als er een klantcase of voorbeeld wordt gedeeld",
-    "Laat persoonlijkheid doorschemeren (durf kleur te bekennen)",
-    "Sluit af met een oproep tot reactie of gedachteprikkel"
+  "title": "LinkedIn post",
+  "description": "Schrijf een krachtige, inspirerende LinkedIn-post in de stijl van Ivar’s. Geen 'wij zijn trots'-verhalen, maar een scherpe observatie, waardevolle tip of sterke case. Mag schuren. Moet boeien.",
+  "structure": [
+    {
+      "blok": "Statement of haakje",
+      "beschrijving": "Triggerende eerste zin die blijft haken. Mag gedurfd of prikkelend zijn."
+    },
+    {
+      "blok": "Toelichting",
+      "beschrijving": "Wat bedoel je precies, waarom is dit relevant, wat zien wij gebeuren in de praktijk?"
+    },
+    {
+      "blok": "Praktisch voorbeeld",
+      "beschrijving": "Concrete situatie of klantcase, geen vaagheid."
+    },
+    {
+      "blok": "Call to action",
+      "beschrijving": "Stimuleer interactie: vraag een mening, laat mensen iets delen of neem contact op."
+    }
   ],
-  "structuur": [
-    "Sterke eerste zin",
-    "Korte toelichting op het onderwerp",
-    "Concrete case/voorval/inzicht",
-    "Wat het betekent voor de doelgroep",
-    "Call to action of afsluitende gedachte"
-  ],
-  "valkuilen": [
-    "Te lang of zonder ritme",
-    "Te vaag of te veel ‘buzzwords’",
-    "Geen duidelijke boodschap of structuur",
-    "Geen herkenbare Ivar’s-stijl (te braaf of te formeel)"
-  ]
+  "tone": "Informeel-professioneel, uitdagend, fris en scherp. Gebruik spreektaal als het sterker maakt. Geen containerbegrippen. Wel ritme.",
+  "example_output": {
+    "Statement of haakje": "Soms is 'goed genoeg' precies wat AFAS in de weg zit.",
+    "Toelichting": "We komen regelmatig bij organisaties waar AFAS 'wel draait', maar waar niemand écht grip heeft. Geen dashboards, geen workflowstructuur, en al helemaal geen rust.",
+    "Praktisch voorbeeld": "Bij een zorginstelling met 800 medewerkers was elke mutatie een zoektocht. Na onze herinrichting zijn ze van 3 uur per week Excel-gedoe naar 10 minuten klikken gegaan.",
+    "Call to action": "Herkenbaar? Laat weten hoe jij AFAS inzet – of juist niet. 💡"
+  },
+  "template": "Schrijf een LinkedIn-post in Ivar’s-stijl over: {input}. Begin met een sterk haakje en volg de vaste structuur. Maak het concreet, inspirerend en deelbaar."
 }
