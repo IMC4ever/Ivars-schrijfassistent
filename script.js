@@ -3,7 +3,7 @@ async function generate() {
   const userInput = document.getElementById("userInput").value;
   const outputDiv = document.getElementById("output");
 
-  outputDiv.innerHTML = "⏳ Genereren...";
+  outputDiv.innerHTML = "Even bezig met schrijven... ✍️";
 
   try {
     const response = await fetch("/api/generate", {
@@ -11,19 +11,17 @@ async function generate() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        preset: preset,
-        input: userInput
-      })
+      body: JSON.stringify({ preset, user_input: userInput })
     });
 
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
-    }
-
     const data = await response.json();
-    outputDiv.innerHTML = `<pre>${data.output || JSON.stringify(data)}</pre>`;
-  } catch (err) {
-    outputDiv.innerHTML = `❌ Fout: ${err.message}`;
+
+    if (data.output) {
+      outputDiv.innerHTML = `<p>${data.output}</p>`;
+    } else {
+      outputDiv.innerHTML = `<p style="color: red;">⚠️ Fout bij genereren: ${data.error || 'Onbekende fout'}</p>`;
+    }
+  } catch (error) {
+    outputDiv.innerHTML = `<p style="color: red;">⚠️ Netwerkfout: ${error.message}</p>`;
   }
 }
