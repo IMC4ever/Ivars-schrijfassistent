@@ -21,14 +21,14 @@ body {
 }
 
 label {
-  font-size: 1.25rem; /* Groter lettertype voor label */
+  font-size: 1.25rem;
   font-weight: 600;
   margin-right: 1rem;
   vertical-align: middle;
 }
 
 select#preset {
-  font-size: 1.25rem; /* Grotere dropdown */
+  font-size: 1.25rem;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -47,32 +47,16 @@ textarea {
   resize: vertical;
 }
 
-button {
-  background-color: #4c2a85;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #3a1f5a;
-}
-
 #output {
   margin-top: 2rem;
   background: #f0f0fa;
   padding: 1rem;
   border-radius: 8px;
-  white-space: pre-wrap;       /* Belangrijk: behoudt witregels en regelafbrekingen */
-  font-family: 'Franklin Gothic', sans-serif; /* Consistent met rest pagina */
+  white-space: pre-wrap;
+  font-family: 'Franklin Gothic', sans-serif;
   font-size: 1rem;
   line-height: 1.5;
   color: #333;
-  min-height: 100px;           /* Altijd wat ruimte tonen */
-  overflow-wrap: break-word;   /* Lange woorden netjes afbreken */
+  min-height: 100px;
+  overflow-wrap: break-word;
 }
