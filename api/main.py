@@ -69,7 +69,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.error("💥 Fout in backend:")
         logging.error(str(e))
         return func.HttpResponse(
-            json.dumps({"error": "Er ging iets mis in de backend."}),
+            json.dumps({"error": f"Serverfout: {str(e)}"}),  # <-- toont exacte foutmelding in frontend
             mimetype="application/json",
             status_code=500
         )
