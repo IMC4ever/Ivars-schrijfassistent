@@ -21,12 +21,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Ivar’s Assistent API aangeroepen')
 
     try:
-        req_body = req.get_json()
-        preset = req_body.get("preset")
-        user_input = req_body.get("input")
-        
-        presets = load_presets()
-        if preset not in presets:
+        preset = req_body.get("preset", "").lower()  # <-- voegt .lower() toe
+user_input = req_body.get("input")
+
+presets = load_presets()
+if preset not in presets:
+    
             return func.HttpResponse(
                 json.dumps({"error": f"Preset '{preset}' niet gevonden."}),
                 mimetype="application/json",
