@@ -1,31 +1,19 @@
 {
   "preset": "linkedin",
-  "title": "LinkedIn post",
-  "description": "Schrijf een krachtige, inspirerende LinkedIn-post in de stijl van Ivar’s. Geen 'wij zijn trots'-verhalen, maar een scherpe observatie, waardevolle tip of sterke case. Mag schuren. Moet boeien.",
+  "title": "LinkedIn-post",
+  "description": "Schrijf een LinkedIn-post in Ivar’s stijl. De toon is informeel, scherp en inspirerend met een duidelijke haak en slot.",
   "structure": [
-    {
-      "blok": "Statement of haakje",
-      "beschrijving": "Triggerende eerste zin die blijft haken. Mag gedurfd of prikkelend zijn."
-    },
-    {
-      "blok": "Toelichting",
-      "beschrijving": "Wat bedoel je precies, waarom is dit relevant, wat zien wij gebeuren in de praktijk?"
-    },
-    {
-      "blok": "Praktisch voorbeeld",
-      "beschrijving": "Concrete situatie of klantcase, geen vaagheid."
-    },
-    {
-      "blok": "Call to action",
-      "beschrijving": "Stimuleer interactie: vraag een mening, laat mensen iets delen of neem contact op."
-    }
+    "Statement of haakje",
+    "Toelichting",
+    "Praktisch voorbeeld",
+    "Call to action"
   ],
-  "tone": "Informeel-professioneel, uitdagend, fris en scherp. Gebruik spreektaal als het sterker maakt. Geen containerbegrippen. Wel ritme.",
+  "tone": "Informeel, krachtig en inspirerend. Schrijf alsof je een collega aan het denken wil zetten. Mag persoonlijk en uitgesproken zijn.",
+  "template": "Schrijf een LinkedIn-post in Ivar’s stijl over: {input}. Begin met een haakje, wees concreet en sluit af met een uitnodiging tot actie. Geen hashtags of verkooptaal.",
   "example_output": {
-    "Statement of haakje": "Soms is 'goed genoeg' precies wat AFAS in de weg zit.",
-    "Toelichting": "We komen regelmatig bij organisaties waar AFAS 'wel draait', maar waar niemand écht grip heeft. Geen dashboards, geen workflowstructuur, en al helemaal geen rust.",
-    "Praktisch voorbeeld": "Bij een zorginstelling met 800 medewerkers was elke mutatie een zoektocht. Na onze herinrichting zijn ze van 3 uur per week Excel-gedoe naar 10 minuten klikken gegaan.",
-    "Call to action": "Herkenbaar? Laat weten hoe jij AFAS inzet – of juist niet. 💡"
-  },
-  "template": "Schrijf een LinkedIn-post in Ivar’s-stijl over: {input}. Begin met een sterk haakje en volg de vaste structuur. Maak het concreet, inspirerend en deelbaar."
+    "Statement": "Iedereen wil meer tijd. Maar niemand ruimt op in zijn processen.",
+    "Toelichting": "Bij Ivar’s zien we dagelijks hoe teams verdrinken in werk dat makkelijker kan. Niet omdat ze het fout doen, maar omdat systemen niet meewerken.",
+    "Voorbeeld": "Bij [klantvoorbeeld] hebben we AFAS zo ingericht dat ze nu 4 uur per week besparen. En dat met maar twee kleine aanpassingen.",
+    "Call to action": "Zin om ook meters te maken? Stuur me een DM. We denken graag mee."
+  }
 }
