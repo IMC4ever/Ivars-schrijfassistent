@@ -1,67 +1,86 @@
 import logging
 import azure.functions as func
 import json
+import openai
 import os
 
+# Zet je OpenAI sleutel hier óf als omgevingvariabele in Azure
+openai.api_key = os.getenv("OPENAI_API_KEY") or "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"  # <--- vervang "sk-..." door je eigen key als test
+
 def load_presets():
-    path = os.path.join(os.path.dirname(__file__), 'presets.json')
-    with open(path, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    return {
+        "email": {
+            "title": "Klantmail",
+            "intro": "Hieronder vind je een conceptmail voor de klant:",
+            "tone": "Energiek, professioneel en direct",
+            "template": "Schrijf een energieke en professionele mail in de stijl van Ivar’s over: {input}"
+        },
+        "linkedin": {
+            "title": "LinkedIn post",
+            "intro": "Hier is een voorstel voor een LinkedIn-post:",
+            "tone": "Informeel, krachtig en inspirerend",
+            "template": "Schrijf een inspirerende LinkedIn-post in de stijl van Ivar’s over: {input}"
+        },
+        "offerte": {
+            "title": "Offerte-intro",
+            "intro": "Dit is een voorstel voor de inleiding van je offerte:",
+            "tone": "Zakelijk, overtuigend en menselijk",
+            "template": "Schrijf een zakelijke maar mensgerichte offerte-intro in de stijl van Ivar’s over: {input}"
+        }
+    }
 
 def generate_output(preset_data, user_input):
-    template = preset_data.get("template", "Schrijf iets over: {input}")
+    prompt = preset_data.get("template", "").replace("{input}", user_input)
     tone = preset_data.get("tone", "")
-    intro = preset_data.get("intro", "")
+    
+    system_message = (
+        "Je bent een professionele AI-copywriter die schrijft namens Ivar’s. "
+        "Gebruik altijd een energieke, heldere en no-nonsense stijl (B1-niveau), "
+        "met korte actieve zinnen. Geen clichés. Geen uitleg. "
+        "Alleen de tekst die direct bruikbaar is in de gekozen context."
+    )
 
-    # Als de template een {input} verwacht maar er is geen input meegegeven
-    if "{input}" in template and not user_input.strip():
-        return "⚠️ Deze preset vereist aanvullende input."
-
-    # Alleen vervangen als de placeholder voorkomt
-    if "{input}" in template:
-        generated = template.replace("{input}", user_input.strip())
-    else:
-        generated = template
-
-    return f"{intro}\n\n{generated}\n\n(Toon: {tone})"
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": system_message},
+                {"role": "user", "content": f"{prompt} (Toon: {tone})"}
+            ],
+            temperature=0.7,
+            max_tokens=500
+        )
+        ai_output = response.choices[0].message.content.strip()
+        return ai_output
+    except Exception as e:
+        logging.error("⚠️ Fout bij OpenAI-call:")
+        logging.error(str(e))
+        return f"⚠️ AI-fout: {str(e)}"
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("✅ Ivar’s Assistent API aangeroepen")
 
     try:
-        # ✅ Stap 1: Request body uitlezen
         req_body = req.get_json()
-        logging.info("📥 Request body ontvangen:")
-        logging.info(json.dumps(req_body, indent=2))
-
-        # ✅ Stap 2: preset en input ophalen
         preset = req_body.get("preset", "").lower()
         user_input = req_body.get("input", "")
 
         logging.info(f"🎛️ Geselecteerde preset: {preset}")
         logging.info(f"✍️ Gebruikersinput: {user_input}")
 
-        # ✅ Stap 3: Presets laden
         presets = load_presets()
-        logging.info(f"📁 Beschikbare presets: {list(presets.keys())}")
-
         if preset not in presets:
-            logging.warning(f"⚠️ Preset '{preset}' niet gevonden in presets.json")
+            logging.warning(f"⚠️ Preset '{preset}' niet gevonden")
             return func.HttpResponse(
                 json.dumps({"error": f"Preset '{preset}' niet gevonden."}),
                 mimetype="application/json",
                 status_code=400
             )
 
-        # ✅ Stap 4: Output genereren
-        logging.info("🧩 Gekozen presetconfig:")
-        logging.info(json.dumps(presets[preset], indent=2))
+        output = generate_output(presets[preset], user_input)
 
-        response = generate_output(presets[preset], user_input)
-
-        logging.info("✅ Output succesvol gegenereerd")
         return func.HttpResponse(
-            json.dumps({"message": response}),
+            json.dumps({"message": output}),
             mimetype="application/json"
         )
 
@@ -69,8 +88,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.error("💥 Fout in backend:")
         logging.error(str(e))
         return func.HttpResponse(
-            json.dumps({"error": f"Serverfout: {str(e)}"}),  # <-- toont exacte foutmelding in frontend
+            json.dumps({"error": f"Serverfout: {str(e)}"}),
             mimetype="application/json",
             status_code=500
         )
-        
