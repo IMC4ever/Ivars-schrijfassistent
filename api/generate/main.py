@@ -1,11 +1,11 @@
 import logging
 import azure.functions as func
 import json
-import openai
 import os
+from openai import OpenAI
 
-# Zet je OpenAI sleutel hier óf als omgevingvariabele in Azure
-openai.api_key = os.getenv("OPENAI_API_KEY") or "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"  # <--- vervang "sk-..." door je eigen key als test
+# Init OpenAI client (nieuw in v1.x)
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY") or "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")  # <-- vervang indien nodig tijdelijk hardcoded
 
 def load_presets():
     return {
@@ -32,7 +32,7 @@ def load_presets():
 def generate_output(preset_data, user_input):
     prompt = preset_data.get("template", "").replace("{input}", user_input)
     tone = preset_data.get("tone", "")
-    
+
     system_message = (
         "Je bent een professionele AI-copywriter die schrijft namens Ivar’s. "
         "Gebruik altijd een energieke, heldere en no-nonsense stijl (B1-niveau), "
@@ -41,7 +41,7 @@ def generate_output(preset_data, user_input):
     )
 
     try:
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": system_message},
@@ -50,8 +50,7 @@ def generate_output(preset_data, user_input):
             temperature=0.7,
             max_tokens=500
         )
-        ai_output = response.choices[0].message.content.strip()
-        return ai_output
+        return response.choices[0].message.content.strip()
     except Exception as e:
         logging.error("⚠️ Fout bij OpenAI-call:")
         logging.error(str(e))
