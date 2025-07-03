@@ -4,68 +4,58 @@ import json
 import os
 from openai import OpenAI
 
-# Init OpenAI client
+# OpenAI client initialiseren met API key uit omgeving
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# 🔍 Pad naar stylebrain-bestand
-def get_stylebrain_path():
-    return os.path.join(os.path.dirname(__file__), 'style', 'stylebrain.json')
+# Bestandslocaties
+BASE_DIR = os.path.dirname(__file__)
+STYLEBRAIN_PATH = os.path.join(BASE_DIR, "style", "stylebrain.json")
+STYLE_DIR = os.path.join(BASE_DIR, "style")
 
-# 📥 Laad presets (tijdelijk hardcoded)
-def load_presets():
-    return {
-        "email": {
-            "title": "Klantmail",
-            "intro": "Hieronder vind je een conceptmail voor de klant:",
-            "tone": "Energiek, professioneel en direct",
-            "template": "Schrijf een energieke en professionele mail in de stijl van Ivar’s over: {input}"
-        },
-        "linkedin": {
-            "title": "LinkedIn post",
-            "intro": "Hier is een voorstel voor een LinkedIn-post:",
-            "tone": "Informeel, krachtig en inspirerend",
-            "template": "Schrijf een inspirerende LinkedIn-post in de stijl van Ivar’s over: {input}"
-        },
-        "offerte": {
-            "title": "Offerte-intro",
-            "intro": "Dit is een voorstel voor de inleiding van je offerte:",
-            "tone": "Zakelijk, overtuigend en menselijk",
-            "template": "Schrijf een zakelijke maar mensgerichte offerte-intro in de stijl van Ivar’s over: {input}"
-        }
-    }
-
-# 🧠 Laad de schrijfwijze uit stylebrain.json
+# Algemene stijlregels laden
 def load_stylebrain():
-    try:
-        with open(get_stylebrain_path(), 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except Exception as e:
-        logging.error("❌ Kon stylebrain.json niet laden:")
-        logging.error(str(e))
-        return {}
+    with open(STYLEBRAIN_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-# 🎯 AI-output genereren
-def generate_output(preset_data, user_input):
-    prompt = preset_data.get("template", "").replace("{input}", user_input)
-    tone = preset_data.get("tone", "")
+# Stijlbestand per preset laden
+def load_preset_style(style_filename):
+    path = os.path.join(STYLE_DIR, style_filename)
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-    stylebrain = load_stylebrain()
-    system_message = stylebrain.get("system", (
-        "Je bent een professionele AI-copywriter die schrijft namens Ivar’s. "
-        "Gebruik altijd een energieke, heldere en no-nonsense stijl (B1-niveau), "
-        "met korte actieve zinnen. Geen clichés. Geen uitleg. "
-        "Alleen de tekst die direct bruikbaar is in de gekozen context."
-    ))
+# Combineren van alle stijlregels in één system prompt
+def build_system_message(general, specific):
+    message = (
+        f"Je bent een professionele AI-copywriter die schrijft namens Ivar’s.\n"
+        f"Gebruik altijd deze schrijfstijl:\n"
+        f"- Toon: {general['tone_of_voice']}\n"
+        f"- Niveau: {general['schrijfstijl']['niveau']}\n"
+        f"- Zinnen: {general['schrijfstijl']['zinnen']}\n"
+        f"- Vorm: {general['schrijfstijl']['vorm']}\n"
+        f"- Humor: {general['schrijfstijl']['humor']}\n"
+        f"- Vermijd: {', '.join(general['verboden'])}\n"
+        f"- Emoji-regels: {general['emoji']['regels']}\n"
+        f"- Toegestane emoji’s: {json.dumps(general['emoji']['voorbeelden'])}\n\n"
+        f"Preset-instructies:\n"
+        f"- Doel: {specific.get('doel', '')}\n"
+        f"- Structuur: {', '.join(specific.get('structuur', []))}\n"
+        f"- Toon: {specific.get('tone', '')}\n"
+    )
+    if voorbeeld := specific.get("stijlvoorbeeld"):
+        message += f"- Stijlvoorbeeld: {voorbeeld}\n"
+    return message
 
+# Output genereren
+def generate_output(system_msg, prompt):
     try:
         response = client.chat.completions.create(
             model="gpt-4",
             messages=[
-                {"role": "system", "content": system_message},
-                {"role": "user", "content": f"{prompt} (Toon: {tone})"}
+                {"role": "system", "content": system_msg},
+                {"role": "user", "content": prompt}
             ],
             temperature=0.7,
-            max_tokens=600
+            max_tokens=800
         )
         return response.choices[0].message.content.strip()
     except Exception as e:
@@ -73,28 +63,47 @@ def generate_output(preset_data, user_input):
         logging.error(str(e))
         return f"⚠️ AI-fout: {str(e)}"
 
-# 🔧 Azure Function handler
+# Azure Functions endpoint
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("✅ Ivar’s Assistent API aangeroepen")
 
     try:
         req_body = req.get_json()
-        preset = req_body.get("preset", "").lower()
-        user_input = req_body.get("input", "")
+        preset_key = req_body.get("preset", "").lower()
+        user_input = req_body.get("input", "").strip()
 
-        logging.info(f"🎛️ Geselecteerde preset: {preset}")
-        logging.info(f"✍️ Gebruikersinput: {user_input}")
-
-        presets = load_presets()
-        if preset not in presets:
-            logging.warning(f"⚠️ Preset '{preset}' niet gevonden")
+        if not preset_key or not user_input:
             return func.HttpResponse(
-                json.dumps({"error": f"Preset '{preset}' niet gevonden."}),
+                json.dumps({"error": "Preset of input ontbreekt."}),
                 mimetype="application/json",
                 status_code=400
             )
 
-        output = generate_output(presets[preset], user_input)
+        stylebrain = load_stylebrain()
+        general_style = stylebrain.get("algemeen", {})
+        preset_meta = stylebrain.get("presets", {}).get(preset_key)
+
+        if not preset_meta:
+            return func.HttpResponse(
+                json.dumps({"error": f"Preset '{preset_key}' niet gevonden in stylebrain."}),
+                mimetype="application/json",
+                status_code=400
+            )
+
+        # Laad het juiste stylebestand
+        stylefile = preset_meta.get("stylefile")
+        if not stylefile:
+            return func.HttpResponse(
+                json.dumps({"error": f"Stylefile niet gespecificeerd voor preset '{preset_key}'."}),
+                mimetype="application/json",
+                status_code=500
+            )
+
+        preset_style = load_preset_style(stylefile)
+        system_message = build_system_message(general_style, preset_style)
+        prompt = preset_style.get("template", "").replace("{input}", user_input)
+
+        output = generate_output(system_message, prompt)
 
         return func.HttpResponse(
             json.dumps({"message": output}),
