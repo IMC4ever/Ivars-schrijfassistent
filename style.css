@@ -60,3 +60,35 @@ textarea {
   min-height: 100px;
   overflow-wrap: break-word;
 }
+
+/* Knoppen styling */
+#generateBtn, #copyBtn {
+  background-color: #4c2a85;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+  width: 140px;
+  height: 48px; /* vaste hoogte */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#generateBtn:hover, #copyBtn:hover {
+  background-color: #3a1f5a;
+}
+
+.button-container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+#copyBtn {
+  display: none;
+}
