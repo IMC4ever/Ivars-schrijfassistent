@@ -6,9 +6,11 @@
   <title>Ivar’s Assistent</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Witregels behouden in output */
     #output {
       white-space: pre-wrap;
     }
+    /* Knoppen dezelfde styling en naast elkaar */
     #generateBtn, #copyBtn {
       background-color: #4c2a85;
       color: white;
@@ -21,18 +23,54 @@
       display: inline-block;
       vertical-align: middle;
       width: 140px;
+      height: 48px;
+      box-sizing: border-box;
       text-align: center;
     }
     #generateBtn:hover, #copyBtn:hover {
       background-color: #3a1f5a;
     }
+    /* Container voor knoppen */
     .button-container {
       margin-top: 1rem;
       display: flex;
       gap: 1rem;
+      align-items: center;
     }
+    /* Copy knop standaard verbergen */
     #copyBtn {
       display: none;
+    }
+    /* Container voor label + select */
+    .label-select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    label {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0; /* reset margin voor betere uitlijning */
+    }
+    select#preset {
+      font-size: 1.25rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      min-width: 180px;
+      vertical-align: middle;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      font-size: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -40,19 +78,23 @@
   <div class="container">
     <img src="assets/IVARS__Paars.png" alt="Ivar's logo" class="logo" />
     <h1>Ivar’s Assistent</h1>
-    <label for="preset">Kies een preset:</label>
-    <select id="preset">
-      <option value="email">Email</option>
-      <option value="linkedin">LinkedIn</option>
-      <option value="offerte">Offerte</option>
-    </select>
+    
+    <div class="label-select-wrapper">
+      <label for="preset">Kies een preset:</label>
+      <select id="preset">
+        <option value="email">Email</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="offerte">Offerte</option>
+      </select>
+    </div>
+    
     <textarea id="userInput" placeholder="Typ hier je input..."></textarea>
-
+    
     <div class="button-container">
       <button id="generateBtn" onclick="generate()">Genereer</button>
       <button id="copyBtn" type="button">Tekst kopiëren</button>
     </div>
-
+    
     <div id="output"></div>
   </div>
   <script src="script.js"></script>
