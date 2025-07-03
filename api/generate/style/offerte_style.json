@@ -1,7 +1,7 @@
 {
   "preset": "offerte",
   "title": "Offerte-intro",
-  "description": "Schrijf een offertevoorstel in de stijl van Ivar’s. De toon is zakelijk, overtuigend en mensgericht, met korte actieve zinnen op B1-niveau. Elke offerte bevat vaste blokken in deze volgorde.",
+  "description": "Schrijf een voorstel in de stijl van Ivar’s. De toon is zakelijk, overtuigend en mensgericht, met korte actieve zinnen op B1-niveau. Elke offerte bevat vaste blokken in deze volgorde.",
   "structure": [
     {
       "blok": "Over Ivar’s",
@@ -25,12 +25,12 @@
     }
   ],
   "tone": "Zakelijk, overtuigend en mensgericht. Korte actieve zinnen, geen vaagheden of verkooppraatjes. Klantgericht, maar met zelfvertrouwen. Schrijf zoals een expert spreekt.",
+  "template": "Schrijf een offerte-inleiding in de stijl van Ivar’s over: {input}. Gebruik de vaste opbouw zonder kopjes of bloknamen, en schrijf alsof het direct de offerte in kan.",
   "example_output": {
     "Over Ivar’s": "Wij zijn Ivar’s. We helpen organisaties in zorg, onderwijs en overheid om meer resultaat uit AFAS te halen — zonder gedoe. Dat doen we met slimme inrichting, praktische ondersteuning en een bak ervaring.",
     "Jullie vraag": "Jullie willen grip op processen, minder losse lijstjes en een AFAS-inrichting die meewerkt in plaats van tegen. De wens: rust en structuur in HR, finance en processen — zonder dat het maanden duurt.",
     "Onze aanpak": "We starten met een korte analyse van jullie huidige inrichting. Daarna pakken we de inrichting aan in logische stappen, afgestemd op jullie ritme en team. Geen dikke rapporten, wel meters maken.",
     "Wat het oplevert": "Tijdwinst. Minder fouten. Betere samenwerking tussen teams. En vooral: grip op je processen, zonder afhankelijk te zijn van externe consultants bij elke wijziging.",
     "Samen aan de slag": "Als dit past bij waar jullie naartoe willen, plannen we graag een kick-off. We kijken samen wat er nodig is om snel en slim te starten. Laat je het weten?"
-  },
-  "template": "Gebruik de volgende input om een offertevoorstel in Ivar’s-stijl te schrijven volgens de vaste structuur (Over Ivar’s, Jullie vraag, Onze aanpak, Wat het oplevert, Samen aan de slag). Werk elk blok kort en krachtig uit: {input}"
+  }
 }
