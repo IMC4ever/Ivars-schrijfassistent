@@ -5,7 +5,7 @@ import os
 from openai import OpenAI
 
 # Init OpenAI client (nieuw in v1.x)
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY") or "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")  # <-- vervang indien nodig tijdelijk hardcoded
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def load_presets():
     return {
