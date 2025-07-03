@@ -11,17 +11,19 @@ async function generate() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ preset, user_input: userInput })
+      body: JSON.stringify({ preset, input: userInput }) // <-- let op: 'input', niet 'user_input'
     });
 
     const data = await response.json();
+    console.log("🔍 Backend response:", data); // <-- logging toegevoegd
 
-    if (data.output) {
-      outputDiv.innerHTML = `<p>${data.output}</p>`;
+    if (response.ok && data.message) {
+      outputDiv.innerHTML = `<p>${data.message}</p>`;
     } else {
       outputDiv.innerHTML = `<p style="color: red;">⚠️ Fout bij genereren: ${data.error || 'Onbekende fout'}</p>`;
     }
   } catch (error) {
+    console.error("❌ Netwerkfout:", error);
     outputDiv.innerHTML = `<p style="color: red;">⚠️ Netwerkfout: ${error.message}</p>`;
   }
 }
