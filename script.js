@@ -11,11 +11,11 @@ async function generate() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ preset, input: userInput }) // <-- let op: 'input', niet 'user_input'
+      body: JSON.stringify({ preset, input: userInput })
     });
 
     const data = await response.json();
-    console.log("🔍 Backend response:", data); // <-- logging toegevoegd
+    console.log("🔍 Backend response:", data);
 
     if (response.ok && data.message) {
       outputDiv.innerHTML = `<p>${data.message}</p>`;
