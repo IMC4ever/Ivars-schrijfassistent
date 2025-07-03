@@ -1,0 +1,27 @@
+{
+  "preset": "linkedin",
+  "doel": "Een inspirerende LinkedIn-post in de stijl van Ivar’s. Gericht op delen van inzichten, klantcases of visie zonder ‘salespraat’.",
+  "toon": "Informeel-professioneel, energiek en scherp",
+  "stijlregels": [
+    "Begin met een opvallende of prikkelende eerste zin",
+    "Gebruik korte alinea’s en witregels voor leesbaarheid",
+    "Voeg één relevante emoji toe als versterking – nooit decoratief",
+    "Gebruik actieve zinnen en spreek in 'wij'-vorm als het over Ivar’s gaat",
+    "Wees concreet over impact/resultaat als er een klantcase of voorbeeld wordt gedeeld",
+    "Laat persoonlijkheid doorschemeren (durf kleur te bekennen)",
+    "Sluit af met een oproep tot reactie of gedachteprikkel"
+  ],
+  "structuur": [
+    "Sterke eerste zin",
+    "Korte toelichting op het onderwerp",
+    "Concrete case/voorval/inzicht",
+    "Wat het betekent voor de doelgroep",
+    "Call to action of afsluitende gedachte"
+  ],
+  "valkuilen": [
+    "Te lang of zonder ritme",
+    "Te vaag of te veel ‘buzzwords’",
+    "Geen duidelijke boodschap of structuur",
+    "Geen herkenbare Ivar’s-stijl (te braaf of te formeel)"
+  ]
+}
