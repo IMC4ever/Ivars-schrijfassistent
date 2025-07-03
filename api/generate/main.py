@@ -7,6 +7,11 @@ from openai import OpenAI
 # Init OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+# 🔍 Pad naar stylebrain-bestand
+def get_stylebrain_path():
+    return os.path.join(os.path.dirname(__file__), 'style', 'stylebrain.json')
+
+# 📥 Laad presets (tijdelijk hardcoded)
 def load_presets():
     return {
         "email": {
@@ -29,59 +34,28 @@ def load_presets():
         }
     }
 
-# Volledig gevoede system message op basis van stijlhandleiding en emoji-richtlijnen
-system_message = """
-Je bent de persoonlijke AI-copywriter van Ivar’s — een bedrijf dat organisaties in zorg, onderwijs en overheid helpt om meer uit AFAS te halen. Je schrijft teksten in de unieke Ivar’s-stijl: energiek, direct en zonder bullshit.
+# 🧠 Laad de schrijfwijze uit stylebrain.json
+def load_stylebrain():
+    try:
+        with open(get_stylebrain_path(), 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        logging.error("❌ Kon stylebrain.json niet laden:")
+        logging.error(str(e))
+        return {}
 
-🎯 Algemene schrijfregels:
-- Schrijf op B1-niveau: helder en toegankelijk
-- Gebruik korte, actieve zinnen
-- Wees ritmisch, concreet en to-the-point
-- Gebruik géén uitleg over wat je doet of waarom
-- Gebruik geen clichés, open deuren of vage containerwoorden
-- Je bent vriendelijk én no-nonsense
-- Spreek de lezer aan met "je"
-- Geen afsluitende samenvattingen of herhalingen
-
-🧠 Emoji-regels:
-- Gebruik emoji’s alleen als het past bij de toon (zie preset)
-- Gebruik alleen emoji’s uit de Ivar’s emoji-set:
-  - 💡 = slim idee
-  - 📣 = aankondiging
-  - 🚀 = actie / vooruitgang
-  - 🔍 = analyse
-  - 🧠 = intelligentie
-  - 🔧 = oplossing / praktisch
-  - 👀 = nieuwsgierigheid
-  - 🟣 = Ivar’s zelf (noem die niet letterlijk)
-
-✉️ Preset: email
-- Toon: direct, energiek en persoonlijk
-- Doel: klant uitnodigen om contact op te nemen
-- Stijl: vlot, met ritme en herkenbaarheid
-- Geen formele aanhef of afsluiting
-- Eindig met een simpele call-to-action ("Laten we even bellen", "Laat je weten wat past?")
-
-🔗 Preset: LinkedIn
-- Toon: informeel, krachtig en inspirerend
-- Doel: aandacht trekken en nieuwsgierig maken
-- Stijl: opener mag kort en prikkelend zijn, kern volgt daarna
-- Gebruik maximaal 1–2 emoji’s, alleen uit de set
-- Geen hashtags of likes-vragen
-
-📄 Preset: offerte
-- Toon: zakelijk, overtuigend en menselijk
-- Doel: vertrouwen wekken en helder zijn
-- Stijl: laat de waarden van Ivar’s zien (praktisch, zelfredzaam, betrouwbaar)
-- Spreek de klant direct aan
-- Geen verkooppraatjes, wel lef
-
-Schrijf zoals Ivar en zijn team praten: scherp, eerlijk, met energie en zonder omwegen.
-"""
-
+# 🎯 AI-output genereren
 def generate_output(preset_data, user_input):
     prompt = preset_data.get("template", "").replace("{input}", user_input)
     tone = preset_data.get("tone", "")
+
+    stylebrain = load_stylebrain()
+    system_message = stylebrain.get("system", (
+        "Je bent een professionele AI-copywriter die schrijft namens Ivar’s. "
+        "Gebruik altijd een energieke, heldere en no-nonsense stijl (B1-niveau), "
+        "met korte actieve zinnen. Geen clichés. Geen uitleg. "
+        "Alleen de tekst die direct bruikbaar is in de gekozen context."
+    ))
 
     try:
         response = client.chat.completions.create(
@@ -91,7 +65,7 @@ def generate_output(preset_data, user_input):
                 {"role": "user", "content": f"{prompt} (Toon: {tone})"}
             ],
             temperature=0.7,
-            max_tokens=500
+            max_tokens=600
         )
         return response.choices[0].message.content.strip()
     except Exception as e:
@@ -99,6 +73,7 @@ def generate_output(preset_data, user_input):
         logging.error(str(e))
         return f"⚠️ AI-fout: {str(e)}"
 
+# 🔧 Azure Function handler
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("✅ Ivar’s Assistent API aangeroepen")
 
