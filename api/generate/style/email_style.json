@@ -1,41 +1,23 @@
 {
   "preset": "email",
   "title": "Klantmail",
-  "description": "Schrijf een energieke, directe klantmail in Ivar’s-stijl. Kort, persoonlijk, doelgericht en met ruimte voor lef. Geen inleiding over wie we zijn, maar direct waarde voor de klant.",
+  "description": "Schrijf een klantgerichte mail in de stijl van Ivar’s. De toon is energiek, direct en professioneel met een persoonlijke noot.",
   "structure": [
-    {
-      "blok": "Onderwerp",
-      "beschrijving": "Korte, pakkende subjectline die actie of nieuwsgierigheid oproept. Geen clickbait."
-    },
-    {
-      "blok": "Aanhef",
-      "beschrijving": "Informeel maar correct. Geen 'geachte'."
-    },
-    {
-      "blok": "Intro",
-      "beschrijving": "Korte haak: een herkenbaar probleem, opvallend feitje of energieke opener."
-    },
-    {
-      "blok": "Kern",
-      "beschrijving": "Wat gaan we voor de klant betekenen, waarom is dit relevant, hoe maken we het makkelijk?"
-    },
-    {
-      "blok": "Call to action",
-      "beschrijving": "Actieve afsluiting met concrete uitnodiging: bel, mail, plan iets in. Geen 'neem gerust contact op'."
-    },
-    {
-      "blok": "Ondertekening",
-      "beschrijving": "Voornaam + functie, eventueel Ivar’s erachter."
-    }
+    "Onderwerp",
+    "Aanhef",
+    "Intro",
+    "Kern",
+    "Call to action",
+    "Ondertekening"
   ],
-  "tone": "Energiek, professioneel, oplossingsgericht. Direct, persoonlijk en zonder onnodige context. Alsof je een slimme collega iets toeschrijft.",
+  "tone": "Energiek, professioneel en direct. Kort, to the point, vriendelijk. Schrijf alsof je iets uitlegt aan een drukbezette professional.",
+  "template": "Schrijf een mail in de stijl van Ivar’s over: {input}. Gebruik de vaste opbouw, maar noem géén kopjes zoals 'Intro' of 'Call to action'.",
   "example_output": {
-    "Onderwerp": "Minder gedoe met AFAS? Dat kan makkelijker.",
-    "Aanhef": "Hoi Marlot,",
-    "Intro": "Je bent geen AFAS-consultant. Toch voelt het soms wel zo, toch?",
-    "Kern": "Bij Ivar’s richten we AFAS zo in dat jij je werk gewoon kunt doen. Geen duizend vinkjes, wel overzicht en rust. Of het nou HR, Finance of processen zijn – wij maken het behapbaar.",
-    "Call to action": "Lijkt dit op wat je zoekt? Zullen we bellen om te kijken wat past?",
-    "Ondertekening": "Ivar – AFAS Consultant bij Ivar’s"
-  },
-  "template": "Schrijf een klantmail in Ivar’s-stijl over: {input}. Volg de vaste structuur en schrijf helder, actief en doelgericht."
+    "Onderwerp": "Samen meer grip op AFAS?",
+    "Aanhef": "Hoi Sanne,",
+    "Intro": "Bedankt voor ons gesprek gisteren. Het is helder: jullie zoeken minder ruis en meer structuur in HR-processen.",
+    "Kern": "Bij Ivar’s helpen we dagelijks zorgorganisaties om AFAS slim in te richten. Geen dure rapporten, maar actie. Samen maken we het overzichtelijk en beheersbaar – zodat jij en je team vooruit kunnen.",
+    "Call to action": "Stuur je me jullie huidige knelpunten? Dan kijken we mee en doen we een voorstel.",
+    "Ondertekening": "Groet, Amber – Ivar’s"
+  }
 }
