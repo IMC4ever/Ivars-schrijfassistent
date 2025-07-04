@@ -105,7 +105,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
         stylebrain = load_stylebrain()
         general_style = stylebrain.get("algemeen", {})
-        preset_meta = stylebrain.get("presets", {}).get(preset_key)
+        preset_meta = stylebrain.get("communicatievormen", {}).get(preset_key)
 
         if not preset_meta:
             return func.HttpResponse(
