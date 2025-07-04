@@ -1,41 +1,41 @@
 {
   "preset": "email",
   "title": "Klantmail",
-  "description": "Schrijf een klantgerichte mail in de stijl van Ivar’s. De toon is energiek, direct en professioneel met een persoonlijke noot.",
+  "description": "Schrijf een klantgerichte, energieke en professionele mail in de stijl van Ivar’s. De toon is persoonlijk, direct en resultaatgericht, met korte alinea’s en heldere taal.",
   "structure": [
     {
       "blok": "Onderwerp",
-      "beschrijving": "Een korte, krachtige onderwerpregel die nieuwsgierig maakt of direct het voordeel benoemt. Geen clickbait."
+      "beschrijving": "Een pakkende, korte onderwerpregel die nieuwsgierigheid of urgentie oproept."
     },
     {
       "blok": "Aanhef",
-      "beschrijving": "Persoonlijke begroeting. Gebruik voornaam als deze bekend is."
+      "beschrijving": "Persoonlijke begroeting, gebruik voornaam als bekend."
     },
     {
       "blok": "Intro",
-      "beschrijving": "Open luchtig en to the point. Verwijs kort naar de aanleiding of het contactmoment. Houd het menselijk."
+      "beschrijving": "Korte inleiding die refereert aan contactmoment of aanleiding."
     },
     {
       "blok": "Kern",
-      "beschrijving": "Geef de kern van de boodschap: wat gaan we doen, hoe pakken we het aan, wat is de meerwaarde? Kort, helder, actiegericht."
+      "beschrijving": "Wat is het aanbod, hoe helpt het de klant? Kort en helder."
     },
     {
       "blok": "Call to action",
-      "beschrijving": "Zet aan tot concrete vervolgstap, zoals het plannen van een afspraak of terugkoppeling."
+      "beschrijving": "Uitnodiging voor vervolgstap: bellen, terugkoppeling of afspraak."
     },
     {
       "blok": "Ondertekening",
-      "beschrijving": "Afsluitgroet met naam en functie, in lijn met de Ivar's-stijl. Beetje flair mag."
+      "beschrijving": "Naam en functie, in lijn met Ivar’s stijl."
     }
   ],
-  "tone": "Energiek, professioneel en direct. Kort, to the point, vriendelijk. Schrijf alsof je iets uitlegt aan een drukbezette professional.",
-  "template": "Schrijf een mail in de stijl van Ivar’s over: {input}. Gebruik de vaste opbouw met de blokken 'Onderwerp', 'Aanhef', 'Intro', 'Kern', 'Call to action' en 'Ondertekening'. Vermijd het noemen van die kopjes zelf. Gebruik witregels tussen de blokken voor scanbaarheid. Geen lange blokken tekst: korte alinea’s en helder ritme.",
+  "tone": "Energiek, professioneel en direct. Schrijf alsof je een slimme collega kort informeert en aanzet tot actie.",
+  "template": "Schrijf een mail in de stijl van Ivar’s over: {input}. Gebruik de vaste blokken 'Onderwerp', 'Aanhef', 'Intro', 'Kern', 'Call to action', 'Ondertekening'. Vermijd het noemen van deze kopjes in de tekst. Gebruik witregels tussen de blokken voor leesbaarheid.",
   "example_output": {
-    "Onderwerp": "Marlot gaat bij Bravis aan de slag met AFAS HR Beheer 🚀",
+    "Onderwerp": "Samen meer grip op AFAS?",
     "Aanhef": "Hoi Ineke,",
-    "Intro": "We hebben goed nieuws! Marlot de Kruijf is helemaal klaar om bij Bravis aan de slag te gaan met AFAS HR Beheer.",
-    "Kern": "Marlot is een ster in het inrichten en beheren van AFAS, en ze kan niet wachten om dat ook voor jullie te doen.\n\nZe komt 20 uur per week jullie kant op om ervoor te zorgen dat alles op rolletjes loopt. Minder stress, meer structuur.",
-    "Call to action": "Klinkt goed, toch? Het enige wat we nu nog nodig hebben, is een startdatum.\n\nWanneer kan Marlot bij jullie beginnen? Laat het ons weten, dan regelen wij de rest.",
-    "Ondertekening": "Groet,\nTeam Ivar’s ✅"
+    "Intro": "Bedankt voor ons gesprek gisteren. Het is helder wat jullie zoeken.",
+    "Kern": "Bij Ivar’s helpen we dagelijks zorgorganisaties om AFAS zo in te richten dat het écht werkt. Geen ingewikkelde rapporten, maar snelle acties die het verschil maken.",
+    "Call to action": "Zullen we binnenkort bellen om de mogelijkheden te bespreken?",
+    "Ondertekening": "Groet, Amber – AFAS Specialist bij Ivar’s"
   }
 }
