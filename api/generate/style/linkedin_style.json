@@ -1,27 +1,27 @@
 {
   "preset": "linkedin",
   "title": "LinkedIn-post",
-  "description": "Schrijf een LinkedIn-post in Ivar’s stijl. De toon is informeel, scherp en inspirerend met ritme, witregels en duidelijke structuur — maar zonder zichtbare kopjes.",
+  "description": "Schrijf een inspirerende en scherpe LinkedIn-post in de stijl van Ivar’s. De toon is informeel-professioneel, met ritme, witregels en een duidelijke flow, zonder zichtbare kopjes.",
   "structure": [
     {
       "blok": "Haakje",
-      "beschrijving": "Een pakkende openingszin die prikkelt of confronteert. Geen algemene intro maar iets dat nieuwsgierig maakt of de lezer direct raakt."
+      "beschrijving": "Een prikkelende openingszin die de aandacht trekt en nieuwsgierigheid wekt."
     },
     {
       "blok": "Toelichting",
-      "beschrijving": "Leg uit waarom dit onderwerp ertoe doet. Denk hardop, deel een scherpe observatie of zet aan tot nadenken. Schrijf alsof je een collega aanzet tot actie."
+      "beschrijving": "Een korte toelichting die uitlegt waarom het onderwerp belangrijk is."
     },
     {
       "blok": "Voorbeeld",
-      "beschrijving": "Noem een concreet voorbeeld uit de praktijk of ervaring bij een klant. Houd het kort, praktisch en geloofwaardig. Geen succesverhaal maar bewijs."
+      "beschrijving": "Een concreet praktijkvoorbeeld dat de boodschap ondersteunt."
     },
     {
       "blok": "Call to action",
-      "beschrijving": "Sluit af met een uitnodiging tot reactie of contact. Houd het informeel en actief, zonder verkooptaal of hashtags."
+      "beschrijving": "Een uitnodiging tot interactie, zoals reageren of contact opnemen."
     }
   ],
-  "tone": "Informeel, krachtig en inspirerend. Schrijf alsof je een collega aan het denken wil zetten. Mag persoonlijk en uitgesproken zijn.",
-  "template": "Schrijf een LinkedIn-post in Ivar’s-stijl over: {input}. Gebruik geen kopjes. Zorg voor ritme, witregels en scanbare opmaak. Gebruik alleen de toegestane emoji’s uit de Ivar’s-huisstijl (zoals 💡 🚀 ✅ ⚠️). Geen hashtags of verkooptaal.",
+  "tone": "Informeel, scherp en energiek. Schrijf alsof je een collega aan het denken zet. Persoonlijk, direct en herkenbaar.",
+  "template": "Schrijf een LinkedIn-post in Ivar’s stijl over: {input}. Gebruik een vloeiende tekst zonder kopjes. Zorg voor witregels en ritme. Gebruik alleen de toegestane emoji’s uit Ivar’s huisstijl (zoals 💡, 🚀, ✅, ⚠️). Geen hashtags of verkooptaal.",
   "example_output": {
     "voorbeeldtekst": "Iedereen wil meer tijd. Maar niemand begint met opruimen. 💡\n\nBij Ivar’s zien we dagelijks hoe teams verdrinken in werk dat makkelijker kan. Niet omdat ze het fout doen, maar omdat processen rammelen of systemen niet meewerken.\n\nBij [klantvoorbeeld] hebben we AFAS zo ingericht dat ze nu 4 uur per week besparen. En dat met maar twee kleine aanpassingen.\n\nZin om ook meters te maken? Stuur me een DM. We denken graag mee. 🚀"
   }
