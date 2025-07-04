@@ -72,7 +72,8 @@
         "Vermijd jargon tenzij passend.",
         "Schrijf korte alinea’s voor betere leesbaarheid.",
         "Wees to the point."
-      ]
+      ],
+      "stylefile": "email_style.json"
     },
     "linkedin": {
       "doel": "Inspireren, informeren en interactie stimuleren op een zakelijke maar toegankelijke manier.",
@@ -93,7 +94,8 @@
         "Gebruik korte paragrafen en witregels voor scanbaarheid.",
         "Vermijd hashtags en verkooptaal.",
         "Wees uitdagend zonder te polariserend te zijn."
-      ]
+      ],
+      "stylefile": "linkedin_style.json"
     },
     "offerte": {
       "doel": "Vertrouwen wekken en helder informeren met overtuiging en menselijkheid.",
@@ -115,7 +117,8 @@
         "Schrijf korte, heldere alinea’s.",
         "Vermijd herhalingen en overbodige woorden.",
         "Zorg dat de tekst geschikt is voor een formeel document."
-      ]
+      ],
+      "stylefile": "offerte_style.json"
     }
   }
 }
