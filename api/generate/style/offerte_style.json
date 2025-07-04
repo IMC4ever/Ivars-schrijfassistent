@@ -1,36 +1,51 @@
 {
   "preset": "offerte",
   "title": "Offerte-intro",
-  "description": "Schrijf een offertevoorstel in de stijl van Ivar’s. De toon is zakelijk, overtuigend en mensgericht, met korte actieve zinnen op B1-niveau. Elke offerte bevat vaste blokken in deze volgorde.",
+  "description": "Schrijf een zakelijke, heldere en mensgerichte offerte in de stijl van Ivar’s. Gebruik de vaste blokken en volg het ritme en taalgebruik zoals in onze professionele klantvoorstellen.",
   "structure": [
     {
       "blok": "Over Ivar’s",
-      "beschrijving": "Korte introductie van Ivar’s: wie we zijn, wat we doen en voor wie. Niet langer dan 4 regels, energiek en zonder jargon."
+      "beschrijving": "Een krachtige introductie van Ivar’s als ervaren AFAS-partner in zorg, onderwijs en overheid. Maximaal 4 regels, zonder jargon."
     },
     {
-      "blok": "Jullie vraag",
-      "beschrijving": "Herkenbare samenvatting van de klantvraag in eigen woorden. Geen herhaling van de briefing maar een scherpe vertaling van wat ze echt zoeken."
+      "blok": "Aanleiding",
+      "beschrijving": "Een korte samenvatting van de aanleiding voor de offerte, toegespitst op de klant en de situatie."
+    },
+    {
+      "blok": "Doelstelling",
+      "beschrijving": "Wat willen we bereiken met de opdracht? Concrete, meetbare doelen."
     },
     {
       "blok": "Onze aanpak",
-      "beschrijving": "To the point uitleg van hoe wij het gaan doen: pragmatisch, slim ingericht en met korte lijnen. Eventueel puntsgewijs als dat sterker is."
+      "beschrijving": "Heldere uitleg van de werkwijze, inclusief stappenplan en betrokkenheid van Marlot. Geen lange verhalen, wel duidelijk en pragmatisch."
+    },
+    {
+      "blok": "Planning",
+      "beschrijving": "Indicatieve tijdslijnen en milestones, afgestemd op de klantbehoefte."
+    },
+    {
+      "blok": "Kosten",
+      "beschrijving": "Heldere kostenopgave, transparant en zonder verrassingen."
     },
     {
       "blok": "Wat het oplevert",
-      "beschrijving": "Concreet benoemen wat het resultaat is: rust, structuur, tijdwinst, minder fouten. Denk vanuit impact voor de klant."
+      "beschrijving": "Concrete voordelen en impact voor de klant: minder fouten, tijdwinst, meer grip."
     },
     {
       "blok": "Samen aan de slag",
-      "beschrijving": "Afsluiting met een uitnodiging tot actie. Niet te formeel, wel duidelijk en uitnodigend."
+      "beschrijving": "Afsluiting met een uitnodiging tot actie en samenwerking."
     }
   ],
-  "tone": "Zakelijk, overtuigend en mensgericht. Korte actieve zinnen, geen vaagheden of verkooppraatjes. Klantgericht, maar met zelfvertrouwen. Schrijf zoals een expert spreekt.",
-  "template": "Schrijf een offerte in de stijl van Ivar’s over: {input}. Gebruik de vaste blokken 'Over Ivar’s', 'Jullie vraag', 'Onze aanpak', 'Wat het oplevert', en 'Samen aan de slag'. Laat elke bloknaam zien als vetgedrukte kop op een eigen regel, zonder dubbele punt of opsommingstekens. Voeg een witregel toe na elk kopje en tussen de alinea’s. De tekst moet ritmisch, professioneel en klantgericht zijn – alsof het direct uit onze offertegenerator komt.",
+  "tone": "Zakelijk, duidelijk, betrouwbaar en mensgericht. Kort, actief, zonder jargon. Schrijf alsof je een partner overtuigt van je expertise en aanpak.",
+  "template": "Schrijf een offerte in de stijl van Ivar’s over: {input}. Gebruik de blokken 'Over Ivar’s', 'Aanleiding', 'Doelstelling', 'Onze aanpak', 'Planning', 'Kosten', 'Wat het oplevert' en 'Samen aan de slag'. Zet elk blok als kopje op een eigen regel, gevolgd door een witregel en daarna de inhoud. Schrijf helder, ritmisch en overtuigend, zonder opsommingstekens of dubbele punten achter de kopjes.",
   "example_output": {
-    "Over Ivar’s": "Wij zijn Ivar’s. We helpen organisaties in zorg, onderwijs en overheid om meer resultaat uit AFAS te halen — zonder gedoe. Dat doen we met slimme inrichting, praktische ondersteuning en een bak ervaring.",
-    "Jullie vraag": "Jullie willen grip op processen, minder losse lijstjes en een AFAS-inrichting die meewerkt in plaats van tegen. De wens: rust en structuur in HR, finance en processen — zonder dat het maanden duurt.",
-    "Onze aanpak": "We starten met een korte analyse van jullie huidige inrichting. Daarna pakken we de inrichting aan in logische stappen, afgestemd op jullie ritme en team. Geen dikke rapporten, wel meters maken.",
-    "Wat het oplevert": "Tijdwinst. Minder fouten. Betere samenwerking tussen teams. En vooral: grip op je processen, zonder afhankelijk te zijn van externe consultants bij elke wijziging.",
-    "Samen aan de slag": "Als dit past bij waar jullie naartoe willen, plannen we graag een kick-off. We kijken samen wat er nodig is om snel en slim te starten. Laat je het weten?"
+    "Over Ivar’s": "Ivar’s is dé partner voor organisaties in zorg, onderwijs en overheid die hun AFAS-omgeving willen optimaliseren. Met onze kennis en ervaring zorgen we voor praktische oplossingen en een efficiënte inrichting.",
+    "Aanleiding": "Bravis heeft behoefte aan ondersteuning bij het verder optimaliseren van het AFAS HR Beheer, met specifieke inzet van een senior consultant.",
+    "Doelstelling": "Het verbeteren van de HR-processen door efficiëntere inrichting, waardoor het team meer tijd overhoudt voor kerntaken.",
+    "Onze aanpak": "Marlot de Kruijf zal 20 uur per week bij Bravis aan de slag gaan. Zij start met een grondige analyse van de huidige situatie, gevolgd door een pragmatische implementatie van verbeteringen. We werken nauw samen met het team voor korte lijnen en snelle besluitvorming.",
+    "Planning": "De inzet start in week 30, met een eerste evaluatie na drie maanden om voortgang te bespreken.",
+    "Kosten": "De kosten bedragen € 120 per uur, exclusief BTW, met een maximale inzet van 20 uur per week.",
+    "Wat het oplevert": "Meer grip op HR-processen, minder administratieve lasten en een efficiënter werkende organisatie.",
+    "Samen aan de slag": "Wij zien ernaar uit om samen met Bravis deze optimalisaties door te voeren. Neem contact op om de details te bespreken en de samenwerking te starten."
   }
 }
